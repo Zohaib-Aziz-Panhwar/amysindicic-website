@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Discovery Call | Amy Sindicic</title>
+<meta name="description" content="Schedule a complimentary consultation with career strategist Amy Sindicic.">
+<link rel="icon" type="image/png" href="assets/brand/butterfly-badge.png">
+<meta property="og:title" content="Book a Discovery Call | Amy Sindicic">
+<meta property="og:description" content="Schedule a complimentary consultation with career strategist Amy Sindicic.">
+<meta property="og:image" content="assets/img/case-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,50;1,9..144,300..700,50&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/brand/butterfly-badge.png" alt=""><span><b>Amy Sindicic</b><small>Transformations 123</small></span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="resources.html">Free Resources</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="btn btn--primary">Book a discovery call</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+<section class="page-hero dark"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Home</a> / Contact</div>
+  <span class="eyebrow">Book a discovery call</span>
+  <h1>Ready for <em>a change?</em></h1>
+  <p class="lede">Tell Amy where you are and where you want to go. She'll reply personally to schedule a complimentary consultation.</p>
+</div></section>
+<section class="section">
+  <div class="wrap contact">
+    <div class="reveal">
+      <span class="eyebrow">What happens next</span>
+      <h2 style="font-size:clamp(30px,3.6vw,44px);margin:14px 0 18px">A 20-minute conversation, no pitch.</h2>
+      <p class="lede" style="font-size:17px">You'll talk through your background, your target, and the honest gap between the two. If a program fits, Amy will recommend one. If it doesn't, she'll tell you that too.</p>
+      <div class="contact-list">
+        <div><b>Email</b><a href="mailto:amysindicic@gmail.com">amysindicic@gmail.com</a></div>
+        <div><b>LinkedIn</b><a href="https://www.linkedin.com/in/amy-sindicic-career-strategist/" target="_blank" rel="noopener">linkedin.com/in/amy-sindicic-career-strategist</a></div>
+        <div><b>Location</b><span>Washington DC – Baltimore area · sessions online worldwide</span></div>
+      </div>
+    </div>
+    <form class="form reveal" id="contactForm">
+      <div class="row">
+        <label>Name <input name="name" required autocomplete="name"></label>
+        <label>Email <input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <label>Current role / grade <input name="role" placeholder="e.g. GS-15 Program Director, O-6 retiring 2027"></label>
+      <label>I'm interested in
+        <select name="program" id="programSelect">
+          <option value="Discovery call">A discovery call — help me choose</option>
+          <option value="Executive Career Direction ($149)">Executive Career Direction ($149)</option>
+          <option value="Executive Positioning & Branding ($249)">Executive Positioning &amp; Branding ($249)</option>
+          <option value="Complete Executive Transition ($599)">Complete Executive Transition ($599)</option>
+          <option value="SES package (resume, ECQs, TQs)">SES package (résumé, ECQs, TQs)</option>
+        </select></label>
+      <label>Where do you want to go? <textarea name="message" rows="5" placeholder="Target roles, industries, timeline — anything that helps Amy prepare."></textarea></label>
+      <button class="btn btn--primary" type="submit" style="justify-content:center">Request my discovery call</button>
+      <p style="font-size:13px;color:var(--slate)">Submitting opens a pre-filled email to Amy from your mail app. Your details go only to her.</p>
+    </form>
+  </div>
+</section>
+<script>(function(){var p=new URLSearchParams(location.search).get('program'),s=document.getElementById('programSelect');if(p&&s){var i={direction:1,positioning:2,complete:3,ses:4}[p];if(i)s.selectedIndex=i;}})();</script>
+</main>
+<section class="newsletter">
+  <div class="wrap">
+    <div><span class="eyebrow" style="color:var(--navy)">Free · résumé template + 10 days of expert writing tips</span>
+      <h2>Join leaders receiving Amy's private-sector transition series</h2>
+      <p>The exact ATS-friendly template Amy uses with clients, followed by ten short daily lessons on writing your impact in plain, private-sector language.</p></div>
+    <form class="nl-form"><input type="email" required placeholder="Your best email" aria-label="Email"><button class="btn" type="submit">Send me the template</button><small>No spam. Unsubscribe any time.</small></form>
+  </div>
+</section>
+<section class="section dark cta" id="book">
+  <div class="wrap">
+    <span class="eyebrow">Book a discovery call</span>
+    <h2>Your experience is in demand. <em>Let's position it right.</em></h2>
+    <p class="lede">A complimentary consultation to hear where you want to go — and an honest read on what it will take to get there.</p>
+    <div class="cta__actions">
+      <a class="btn btn--primary" href="contact.html">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="https://www.linkedin.com/in/amy-sindicic-career-strategist/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+    <p class="cta__mail">Or email directly: <a href="mailto:amysindicic@gmail.com">amysindicic@gmail.com</a></p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/brand/butterfly-badge.png" alt=""><span><b>Amy Sindicic</b><small>Transformations 123</small></span></a>
+      <p style="max-width:38ch">Career strategist, executive résumé writer and interview advisor for government and military leaders entering the private sector. Washington DC – Baltimore, and remote worldwide.</p>
+    </div>
+    <div><h4>Programs</h4><ul><li><a href="services.html#direction">Executive Career Direction</a></li><li><a href="services.html#positioning">Positioning &amp; Branding</a></li><li><a href="services.html#complete">Complete Executive Transition</a></li><li><a href="resources.html#ses">SES materials</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="about.html">About Amy</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="resources.html">Free resources</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Connect</h4><ul>
+      <li><a href="https://www.linkedin.com/in/amy-sindicic-career-strategist/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.youtube.com/channel/UCBxBXFz8M6NemRSokwIGF3Q" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/amysindicic123/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/transformations123" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://www.upwork.com/freelancers/amysindicic" target="_blank" rel="noopener">Upwork</a></li>
+      <li><a href="mailto:amysindicic@gmail.com">amysindicic@gmail.com</a></li>
+    </ul></div>
+    <div class="footer__bottom"><span>© 2026 Amy Sindicic · Transformations 123. All rights reserved.</span><span>Certified Career &amp; Life Coach · Certified Résumé Writer · Interview Coach</span></div>
+  </div>
+</footer>
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video"><button class="modal__close" aria-label="Close">×</button><div class="modal__box"></div></div>
+<div class="slidein" id="slidein" role="dialog" aria-label="Free résumé template">
+  <button class="slidein__x" id="slideinClose" aria-label="Close">×</button>
+  <img src="assets/img/lib-resume-template-thumbnail.png" alt="">
+  <div><b>Free: the private-sector résumé template</b><p>The exact template Amy uses with clients, plus 10 days of writing tips.</p><a class="btn btn--primary" href="resources.html">Get the template</a></div>
+</div>
+<div class="sticky-cta" id="stickyCta"><span>Free discovery call</span><a class="btn btn--primary" href="contact.html">Book now</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>

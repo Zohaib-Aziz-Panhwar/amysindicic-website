@@ -1,0 +1,4 @@
+node_modules/
+react-site/dist/
+.DS_Store
+*.log
