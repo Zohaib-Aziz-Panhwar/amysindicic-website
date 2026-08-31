@@ -103,37 +103,37 @@ p { margin: 0 0 1em; }
   background:
     radial-gradient(120% 120% at 78% 40%, #0c2447 0%, transparent 55%),
     linear-gradient(180deg, var(--navy-hero), var(--navy));
-  /* Band height is tuned so the photo panel lands close to the picture's own
-     2:1 ratio — that keeps the bookshelves and lamp in frame instead of
-     zooming hard into her face. */
-  padding: 10.6% 0 2.8%;
+  /* Band height tuned to the photograph's own 1.12:1 ratio so the frame
+     stays close to the original: whole head, shelves and table all in shot. */
+  padding: 11.2% 0 5.4%;
   border-bottom: 3px solid var(--gold);
 }
 /* Warm key light behind the subject so she separates from the dark room. */
 .hero::before {
   content: ''; position: absolute; z-index: 1; pointer-events: none;
   inset: 0;
-  background: radial-gradient(40% 56% at 70% 52%, rgba(247,179,36,.16), transparent 64%);
+  background: radial-gradient(38% 54% at 76% 50%, rgba(247,179,36,.16), transparent 64%);
 }
 .hero__photo {
-  position: absolute; right: 0; top: clamp(70px, 8.4vw, 106px); bottom: 0; width: 57%;
-  background-size: cover; background-position: 50% 0%;
+  position: absolute; right: 0; top: clamp(58px, 6.6vw, 84px); bottom: 0; width: 46%;
+  background-size: cover; background-position: 50% 42%;
   /* Feathered on the left and top rather than dimmed: she keeps full
      brightness and reads as a foreground subject emerging from the room,
-     instead of flat wallpaper behind a navy wash. */
+     instead of flat wallpaper behind a navy wash. The original has headroom
+     above her hair, so the top fade can be gentle again. */
   -webkit-mask-image:
     linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 7%, rgba(0,0,0,.78) 19%, #000 31%),
-    linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 7%, #000 17%);
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 2%, #000 5%);
   -webkit-mask-composite: source-in;
   mask-image:
     linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 7%, rgba(0,0,0,.78) 19%, #000 31%),
-    linear-gradient(180deg, transparent 0%, #000 1.6%);
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 2%, #000 5%);
   mask-composite: intersect;
 }
 /* Vignette centred on Amy — darkens the room's edges so she steps forward. */
 .hero__photo::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
-  background: radial-gradient(70% 86% at 45% 54%, transparent 46%, rgba(0,17,37,.36) 100%);
+  background: radial-gradient(72% 84% at 50% 48%, transparent 48%, rgba(0,17,37,.34) 100%);
 }
 /* Grounds the photo into the gold rule at the foot of the band. */
 .hero__photo::after {
@@ -588,8 +588,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .hero .btn { width: 100%; text-align: center; padding: 15px 20px; }
   .hero__photo {
     order: 1; position: static; width: 100%;
-    aspect-ratio: 4 / 3; opacity: 1;
-    background-position: 50% 8%;
+    aspect-ratio: 5 / 4; opacity: 1;
+    background-position: 50% 10%;
     /* Fades into the navy that carries the headline below it. */
     -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 99%);
     mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 99%);
@@ -659,7 +659,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 @media (max-width: 560px) {
   .wrap { padding: 0 18px; }
-  .hero__photo { aspect-ratio: 4 / 3; }
+  .hero__photo { aspect-ratio: 1 / 1; }
   .stats-grid { row-gap: 20px; }
   .testi__by { align-items: flex-start; }
   .testi__role { font-size: .74rem; }
