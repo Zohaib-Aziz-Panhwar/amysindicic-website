@@ -79,11 +79,11 @@ p { margin: 0 0 1em; }
 .header .wrap { padding: 0 clamp(12px, 2.2%, 30px); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand img {
-  height: clamp(54px, 6.2vw, 76px); width: auto;
+  height: clamp(58px, 7vw, 86px); width: auto;
   background: #fff; border-radius: 4px;
   transition: height .3s ease;
 }
-.header--compact .brand img { height: clamp(42px, 4.6vw, 54px); }
+.header--compact .brand img { height: clamp(44px, 5vw, 60px); }
 .nav { display: flex; align-items: center; gap: clamp(14px, 3.4vw, 50px); }
 .nav a {
   font-size: clamp(.66rem, 1.16vw, .95rem); font-weight: 700; letter-spacing: .03em;
@@ -164,7 +164,8 @@ p { margin: 0 0 1em; }
 .hero .btn { box-shadow: 0 10px 26px rgba(247,179,36,.26); }
 .hero .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(247,179,36,.34); }
 .hero__butterfly {
-  position: absolute; left: 28.5%; bottom: 6%; width: 22%; z-index: 2;
+  /* Matches the artwork's own footprint in the comp: x 294-566 of 1024. */
+  position: absolute; left: 28.7%; bottom: 2%; width: 26.6%; z-index: 2;
   filter: drop-shadow(0 0 14px rgba(247,179,36,.4));
   animation: heroFloat 7s ease-in-out infinite;
 }

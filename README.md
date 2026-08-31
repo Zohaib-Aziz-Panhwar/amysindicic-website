@@ -26,9 +26,10 @@ testimonial (an empty value falls back to an initials monogram).
 Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
 which builds the site and publishes it to GitHub Pages.
 
-The site is served from a sub-path (`/amysindicic-website/`), configured as
-`base` in [`vite.config.js`](vite.config.js). If you move to a custom domain,
-build with `VITE_BASE=/` so asset URLs resolve from the domain root.
+GitHub Pages serves project sites from `/<repo>/`, so
+[`vite.config.js`](vite.config.js) derives `base` from `GITHUB_REPOSITORY` at
+build time — the same code works in any repository. Locally it builds at `/`.
+For a custom domain, build with `VITE_BASE=/`.
 
 ## Outstanding
 
