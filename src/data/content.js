@@ -14,9 +14,7 @@ export const site = {
   servicesUrl: 'https://transformations123.com',
   // Every "Book a Discovery Call" CTA points here.
   bookingUrl: 'https://amysindicic.simplybook.me/v2/#book',
-  linkedin: 'https://www.linkedin.com/in/amy-sindicic-career-strategist/',
-  // Not supplied yet — the email icon stays hidden until it is filled in.
-  email: '',
+  email: 'amysindicic@gmail.com',
 }
 
 // ---------------------------------------------------------------------------
@@ -32,6 +30,15 @@ export const ctas = {
   footer: 'Schedule a Call',
   notFound: 'Get in Touch',
 }
+
+// Profiles linked from the footer. `brand` is each platform's own colour, so
+// the icons read as the real marks rather than a single tinted set.
+export const socials = [
+  { key: 'linkedin',  label: 'LinkedIn',  href: 'https://www.linkedin.com/in/amy-sindicic-career-strategist/', brand: '#0A66C2' },
+  { key: 'youtube',   label: 'YouTube',   href: 'https://www.youtube.com/@transformations123',                 brand: '#FF0000' },
+  { key: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/amysindicic123/',                   brand: '' },  // painted by its own gradient
+  { key: 'upwork',    label: 'Upwork',    href: 'https://www.upwork.com/freelancers/amysindicic',              brand: '#14A800' },
+]
 
 export const nav = [
   { label: 'Home', to: '/' },
