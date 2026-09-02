@@ -52,14 +52,16 @@ export default function Header() {
         </nav>
 
         <button
-          className="burger"
+          className={`burger ${menuOpen ? 'burger--open' : ''}`}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <span style={menuOpen ? { transform: 'translateY(7px) rotate(45deg)' } : undefined} />
-          <span style={menuOpen ? { opacity: 0 } : undefined} />
-          <span style={menuOpen ? { transform: 'translateY(-7px) rotate(-45deg)' } : undefined} />
+          {/* The open/closed shape is handled in CSS, where the bar spacing
+              is known — inline transforms drifted out of alignment. */}
+          <span />
+          <span />
+          <span />
         </button>
       </div>
     </header>

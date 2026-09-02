@@ -1267,3 +1267,73 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .nav a { font-size: .64rem; }
   .nav .btn { font-size: .56rem; padding: 9px 12px; }
 }
+
+/* =====================================================================
+   MOBILE DRAWER
+   Centred items, a clearly visible close control, and no full-width gold
+   underline on the active link.
+   ===================================================================== */
+@media (max-width: 700px) {
+  .nav {
+    align-items: center; text-align: center;
+    padding: 104px 26px 40px; gap: 0;
+  }
+  .nav a {
+    width: 100%; text-align: center;
+    font-size: .92rem; letter-spacing: .08em;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .nav a:first-of-type { border-top: 1px solid rgba(255, 255, 255, .08); }
+
+  /* The sliding underline is a desktop affordance; at full drawer width it
+     reads as a heavy gold bar. Active state is carried by colour instead. */
+  .nav a:not(.btn)::after { display: none; }
+  .nav a:not(.btn).active,
+  .nav a:not(.btn):hover { color: var(--gold); border-bottom-color: rgba(247,179,36,.35); }
+
+  .nav .btn {
+    width: 100%; margin-top: 26px;
+    font-size: .74rem; padding: 15px 18px; border-bottom: 0;
+  }
+
+  /* ---- Close control ---- */
+  .burger {
+    width: 46px; height: 46px; border-radius: 50%;
+    transition: background .2s ease;
+  }
+  .burger span {
+    width: 26px; height: 3px; border-radius: 2px;
+    background: #fff;
+  }
+  .burger--open {
+    background: rgba(255, 255, 255, .1);
+    outline: 1px solid rgba(255, 255, 255, .22);
+  }
+  .burger--open span { background: var(--gold); }
+}
+
+/* Burger / close icon. The bars are positioned absolutely so the crossed
+   state lands exactly on centre regardless of bar height or spacing. */
+@media (max-width: 700px) {
+  .burger { position: relative; display: block; }
+  .burger span {
+    position: absolute; left: 50%; margin: 0;
+    width: 25px; height: 3px; border-radius: 2px; background: #fff;
+    transform: translateX(-50%);
+    transition: transform .26s ease, opacity .18s ease, background .2s ease;
+  }
+  .burger span:nth-child(1) { top: 15px; }
+  .burger span:nth-child(2) { top: 21.5px; }
+  .burger span:nth-child(3) { top: 28px; }
+
+  .burger--open span:nth-child(1) { transform: translateX(-50%) translateY(6.5px) rotate(45deg); }
+  .burger--open span:nth-child(2) { opacity: 0; }
+  .burger--open span:nth-child(3) { transform: translateX(-50%) translateY(-6.5px) rotate(-45deg); }
+}
+@media (prefers-reduced-motion: reduce) { .burger span { transition: none; } }
+
+/* Declared last so it wins over the base bar colour above. */
+@media (max-width: 700px) {
+  .burger--open span { background: var(--gold); }
+}
