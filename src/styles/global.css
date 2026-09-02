@@ -1249,7 +1249,11 @@ html, body { max-width: 100%; overflow-x: hidden; }
     max-width: 8.6rem;
   }
 }
-@media (max-width: 380px) { .brand__tag { display: none; } }
+/* Kept on the smallest phones too — it just gets a little tighter. */
+@media (max-width: 400px) {
+  .brand__tag { font-size: .53rem; max-width: 7.4rem; letter-spacing: .04em; }
+  .brand { gap: 8px; }
+}
 
 /* Tablet band: the inline bar has room for the tagline once the links and
    the CTA are tightened slightly, so it no longer disappears on an iPad. */
