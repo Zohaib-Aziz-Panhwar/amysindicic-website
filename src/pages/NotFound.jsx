@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageHero } from '../components/Common.jsx'
+import { ctas } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
 
 export default function NotFound() {
@@ -14,7 +15,7 @@ export default function NotFound() {
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/" className="btn btn--dark">Back to home</Link>
             <Link to="/blog" className="btn">Read the blog</Link>
-            <BookButton label="Book a discovery call" />
+            <BookButton label={ctas.notFound} />
           </div>
         </div>
       </section>

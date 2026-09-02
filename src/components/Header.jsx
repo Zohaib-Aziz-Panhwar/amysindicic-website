@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { nav, site, hero } from '../data/content.js'
+import { nav, site, ctas } from '../data/content.js'
 import BookButton from './BookButton.jsx'
 import { asset } from '../lib/asset.js'
 
@@ -38,7 +38,8 @@ export default function Header() {
     >
       <div className="wrap header__inner">
         <Link to="/" className="brand" aria-label={`${site.name} — home`}>
-          <img src={asset('/images/logo.png')} alt={`${site.name} — ${site.tagline}`} />
+          <img src={asset('/images/logo.png')} alt={site.name} />
+          <span className="brand__tag">{site.tagline}</span>
         </Link>
 
         <nav className={`nav ${menuOpen ? 'nav--open' : ''}`} aria-label="Main">
@@ -47,7 +48,7 @@ export default function Header() {
               {item.label}
             </NavLink>
           ))}
-          <BookButton />
+          <BookButton label={ctas.nav} />
         </nav>
 
         <button

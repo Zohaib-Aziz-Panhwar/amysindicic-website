@@ -14,9 +14,23 @@ export const site = {
   servicesUrl: 'https://transformations123.com',
   // Every "Book a Discovery Call" CTA points here.
   bookingUrl: 'https://amysindicic.simplybook.me/v2/#book',
-  // Not present in the design — leave blank rather than invent.
+  linkedin: 'https://www.linkedin.com/in/amy-sindicic-career-strategist/',
+  // Not supplied yet — the email icon stays hidden until it is filled in.
   email: '',
-  linkedin: '',
+}
+
+// ---------------------------------------------------------------------------
+// Call-to-action wording. Every one of these opens the same SimplyBook page;
+// only the label changes so the same phrase is not repeated down the page.
+// The hero keeps the approved design's exact wording as the primary CTA.
+// ---------------------------------------------------------------------------
+export const ctas = {
+  nav: 'Book a Call',
+  hero: 'Book a Discovery Call',
+  about: 'Work With Amy',
+  closing: 'Start the Conversation',
+  footer: 'Schedule a Call',
+  notFound: 'Get in Touch',
 }
 
 export const nav = [
@@ -76,28 +90,9 @@ export const approach = [
 
 export const blogHeading = 'From The Blog'
 
-export const posts = [
-  {
-    slug: 'why-government-executives-struggle-to-translate-their-value',
-    title: 'Why Government Executives Struggle to Translate Their Value',
-    image: asset('/images/blog-1.jpg'),
-  },
-  {
-    slug: 'your-title-isnt-your-executive-brand',
-    title: 'Your Title Isn’t Your Executive Brand',
-    image: asset('/images/blog-2.jpg'),
-  },
-  {
-    slug: 'everyone-has-ai-not-everyone-has-a-strategy',
-    title: 'Everyone Has AI. Not Everyone Has a Strategy.',
-    image: asset('/images/blog-3.jpg'),
-  },
-  {
-    slug: '3-ways-to-position-your-experience-for-whats-next',
-    title: '3 Ways to Position Your Experience for What’s Next',
-    image: asset('/images/blog-4.jpg'),
-  },
-]
+// Real posts live in ./posts.js, fetched from amysindicic.com/blog
+export { posts } from './posts.js'
+
 
 export const blogCta = 'View All Blog Posts'
 
@@ -109,8 +104,10 @@ export const closing = {
 }
 
 export const footer = {
-  copyright: '© 2024 Amy Sindicic. All rights reserved.',
+  // Year is rendered dynamically so the notice never goes stale.
+  copyright: 'Amy Sindicic. All rights reserved.',
   connect: 'Let’s Connect',
+  blurb: 'Career strategy, executive positioning and transition guidance for accomplished leaders navigating their next chapter.',
   legal: [
     { label: 'Privacy Policy', to: '/privacy' },
     { label: 'Terms of Service', to: '/terms' },

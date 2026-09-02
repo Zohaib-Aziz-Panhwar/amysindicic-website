@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { closing } from '../data/content.js'
+import { closing, ctas } from '../data/content.js'
 import BookButton from './BookButton.jsx'
 import { asset } from '../lib/asset.js'
 
@@ -51,11 +51,17 @@ export function Placeholder({ label = 'Copy to be supplied by client', children 
   )
 }
 
-/** Inner-page hero band. */
+/** Inner-page hero band. Shared by About, Blog, Testimonials and the legal pages. */
 export function PageHero({ title, text }) {
   return (
     <section className="page-hero">
-      <div className="wrap">
+      <img
+        className="page-hero__bf"
+        src={asset('/images/bf-banner.png')}
+        alt=""
+        aria-hidden="true"
+      />
+      <div className="wrap page-hero__inner">
         <h1>{title}</h1>
         {text && <p>{text}</p>}
       </div>
@@ -75,7 +81,7 @@ export function ClosingBand() {
           <span className="gold">{closing.titleLine2}</span>
         </h2>
         <p className="closing__text" style={{ margin: 0 }}>{closing.text}</p>
-        <BookButton label={closing.cta} />
+        <BookButton label={ctas.closing} />
       </div>
     </section>
   )

@@ -1,7 +1,8 @@
 import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
-import { about } from '../data/content.js'
+import { about, ctas } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
 import { asset } from '../lib/asset.js'
+import CountUp from '../components/CountUp.jsx'
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
             <h2 className="about-name">{about.name}</h2>
             <hr className="about-rule" />
             <p className="about-lede">{about.lede}</p>
-            <BookButton />
+            <BookButton label={ctas.about} />
           </Reveal>
         </div>
       </section>
@@ -28,7 +29,7 @@ export default function About() {
         <div className="wrap stats-grid">
           {about.stats.map((s, i) => (
             <Reveal key={s.figure} className="stat" delay={i * 90}>
-              <div className="stat__figure">{s.figure}</div>
+              <div className="stat__figure"><CountUp value={s.figure} /></div>
               <p>{s.label}</p>
             </Reveal>
           ))}

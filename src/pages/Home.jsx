@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import { Reveal, ClosingBand } from '../components/Common.jsx'
 import {
   hero, banner, servicesHeading, services, servicesCta,
-  audiences, approachHeading, approach, blogHeading, posts, blogCta,
+  audiences, approachHeading, approach, blogHeading, posts, blogCta, ctas,
 } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
 import { asset } from '../lib/asset.js'
+import Typewriter from '../components/Typewriter.jsx'
 
 function Arrow() {
   return (
@@ -43,8 +44,8 @@ export default function Home() {
               <span className="gold">{hero.titleLine2}</span>
             </h1>
             <hr className="hero__rule" />
-            <p>{hero.text}</p>
-            <BookButton />
+            <p><Typewriter text={hero.text} /></p>
+            <BookButton label={ctas.hero} />
           </div>
         </div>
       </section>
@@ -72,7 +73,7 @@ export default function Home() {
       {/* ---------------- Services ---------------- */}
       <section className="section services">
         <div className="wrap">
-          <h2 className="sec-title">{servicesHeading}</h2>
+          <Reveal as="h2" className="sec-title">{servicesHeading}</Reveal>
           <div className="svc-grid">
             {services.map((s, i) => (
               <Reveal key={s.slug} className="svc" delay={i * 70}>
@@ -96,14 +97,17 @@ export default function Home() {
 
       {/* ---------------- Audiences ---------------- */}
       <section className="section audiences">
-        <div className="wrap aud-grid">
-          <img className="bf-audience" src={asset('/images/bf-audience.png')} alt="" aria-hidden="true" />
-          {audiences.map((a, i) => (
-            <Reveal key={a.slug} className="aud" delay={i * 70}>
-              <h3>{a.title}</h3>
-              <p>{a.blurb}</p>
-            </Reveal>
-          ))}
+        <img className="bf-audience" src={asset('/images/bf-audience.png')} alt="" aria-hidden="true" />
+        <div className="wrap">
+          <Reveal as="h2" className="sec-title">Who I Work With</Reveal>
+          <div className="aud-grid">
+            {audiences.map((a, i) => (
+              <Reveal key={a.slug} className="aud" delay={i * 70}>
+                <h3>{a.title}</h3>
+                <p>{a.blurb}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -111,7 +115,7 @@ export default function Home() {
       <section className="section approach">
         <img className="bf-approach" src={asset('/images/bf-approach.png')} alt="" aria-hidden="true" />
         <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
-          <h2 className="sec-title">{approachHeading}</h2>
+          <Reveal as="h2" className="sec-title">{approachHeading}</Reveal>
           <div className="appr-grid" style={{ margin: '0 auto' }}>
             {approach.map((a, i) => (
               <div key={a.n} style={{ display: 'contents' }}>
@@ -130,13 +134,18 @@ export default function Home() {
       {/* ---------------- Blog ---------------- */}
       <section className="section blog">
         <div className="wrap">
-          <h2 className="sec-title">{blogHeading}</h2>
+          <Reveal as="h2" className="sec-title">{blogHeading}</Reveal>
           <div className="blog-grid">
-            {posts.map((p, i) => (
+            {posts.slice(0, 4).map((p, i) => (
               <Reveal key={p.slug} delay={i * 70}>
                 <Link to={`/blog/${p.slug}`} className="post">
-                  <img src={p.image} alt="" />
-                  <h3>{p.title}</h3>
+                  <span className="post__frame">
+                    <img src={p.image} alt="" loading="lazy" />
+                  </span>
+                  <span className="post__body">
+                    <h3>{p.title}</h3>
+                    <span className="post__more">Read more <span aria-hidden="true">&rarr;</span></span>
+                  </span>
                 </Link>
               </Reveal>
             ))}
