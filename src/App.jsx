@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import { BlogIndex, BlogPost } from './pages/Blog.jsx'
 import Testimonials from './pages/Testimonials.jsx'
+import Faqs from './pages/Faqs.jsx'
 import Legal from './pages/Legal.jsx'
 import BookingRedirect from './components/BookingRedirect.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/faqs" element={<Faqs />} />
           <Route path="/contact" element={<BookingRedirect />} />
           <Route path="/privacy" element={<Legal title="Privacy Policy" />} />
           <Route path="/terms" element={<Legal title="Terms of Service" />} />

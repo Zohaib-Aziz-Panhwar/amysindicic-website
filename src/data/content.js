@@ -12,7 +12,7 @@ export const site = {
   name: 'Amy Sindicic',
   tagline: 'Executive Career Strategist & Coach',
   servicesUrl: 'https://transformations123.com',
-  // Every "Book a Discovery Call" CTA points here.
+  // Every "Book A Strategy Call" CTA points here.
   bookingUrl: 'https://amysindicic.simplybook.me/v2/#book',
   email: 'amysindicic@gmail.com',
 }
@@ -22,13 +22,15 @@ export const site = {
 // only the label changes so the same phrase is not repeated down the page.
 // The hero keeps the approved design's exact wording as the primary CTA.
 // ---------------------------------------------------------------------------
+// Note: hero.cta and closing.cta below are the labels from the original
+// design comp. Buttons render from this object instead.
 export const ctas = {
-  nav: 'Book a Call',
-  hero: 'Book a Discovery Call',
-  about: 'Work With Amy',
-  closing: 'Start the Conversation',
-  footer: 'Schedule a Call',
-  notFound: 'Get in Touch',
+  nav: 'Book A Strategy Call',
+  hero: 'Book A Strategy Call',
+  about: 'Book A Strategy Call',
+  closing: 'Book A Strategy Call',
+  footer: 'Book A Strategy Call',
+  notFound: 'Book A Strategy Call',
 }
 
 // Profiles linked from the footer. `brand` is each platform's own colour, so
@@ -45,6 +47,7 @@ export const nav = [
   { label: 'About Amy', to: '/about' },
   { label: 'Blog', to: '/blog' },
   { label: 'Testimonials', to: '/testimonials' },
+  { label: 'FAQs', to: '/faqs' },
 ]
 
 export const hero = {
@@ -214,5 +217,52 @@ export const testimonials = [
     quote: [
       'The Best Interview Coach! I was referred to her by another MD and was truly impressed by her expertise, experience, and thorough approach. Her guidance greatly enhanced my interview skills, leading to excellent experiences during my application for the U.S. medical residency matching program.',
     ],
+  },
+]
+
+// ---------------------------------------------------------------------------
+// FAQs — supplied by the client, reproduced verbatim.
+// ---------------------------------------------------------------------------
+export const faqHeading = 'Frequently Asked Questions'
+
+export const faqIntro =
+  'Answers to the questions accomplished leaders ask most often before starting work together.'
+
+export const faqs = [
+  {
+    q: 'Who do you typically work with?',
+    a: 'I work with accomplished professionals navigating significant career transitions, including senior government leaders, SES leaders and candidates, military leaders transitioning to the private sector, and corporate executives preparing for their next leadership opportunity.',
+  },
+  {
+    q: 'I’m already a senior executive. What value can career strategy add?',
+    a: 'At the executive level, the challenge is rarely a lack of experience. It is determining where that experience creates the greatest value next—and communicating it with precision. Executive career strategy helps clarify your market position, differentiate your leadership value, and align your narrative with the opportunities you want to pursue.',
+  },
+  {
+    q: 'How is your approach different from traditional resume writing?',
+    a: 'The work begins with strategy, not documents. We examine your leadership scope, achievements, decision-making authority, organizational impact, target opportunities, and market expectations. From there, we define how your experience should be positioned and build your career materials and market strategy around that positioning.',
+  },
+  {
+    q: 'I’m not sure what role I want next. Can you still help me?',
+    a: 'Yes. Many accomplished leaders know they are ready for something different but haven’t yet defined the right destination. Career strategy can help clarify where your experience creates the greatest value, which opportunities align with your priorities, and how to position yourself for them.',
+  },
+  {
+    q: 'Can you help me translate government or military experience for the private sector?',
+    a: 'Yes. This is a central part of my work. The goal is not simply to replace government or military terminology with corporate language. We identify the leadership, operational, financial, strategic, and organizational value behind your experience and communicate it in terms private-sector decision-makers understand.',
+  },
+  {
+    q: 'Do you work with SES leaders and SES candidates?',
+    a: 'Yes. I work with senior federal leaders and SES candidates on executive positioning, career strategy, leadership narratives, personal branding, interview preparation, and transitions into private-sector leadership opportunities.',
+  },
+  {
+    q: 'Do you offer individual services or only comprehensive engagements?',
+    a: 'Both. Some clients need focused support in one area, while others benefit from a broader executive transition engagement. You can explore the complete range of services at Transformations123.com or schedule a conversation to determine the appropriate level of support.',
+  },
+  {
+    q: 'How long does the process take?',
+    a: 'It depends on the scope of the engagement and your objectives. Some positioning and branding projects are completed within a defined project period, while strategic career transitions may involve ongoing advisory support as opportunities develop.',
+  },
+  {
+    q: 'What happens during the initial call?',
+    a: 'We discuss where you are now, what you are considering next, the challenges you’re encountering, and what kind of support would be most valuable. If there is a strong fit, I’ll explain the most appropriate way for us to work together.',
   },
 ]

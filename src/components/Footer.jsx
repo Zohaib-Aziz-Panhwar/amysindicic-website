@@ -3,6 +3,24 @@ import { footer, site, nav, services, servicesCta, ctas, socials } from '../data
 import { asset } from '../lib/asset.js'
 import { SocialMark, Mail, InstagramGradientDefs } from './SocialIcons.jsx'
 
+function Globe() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <ellipse cx="12" cy="12" rx="4.5" ry="10" />
+      <path d="M2 12h20M4 6.5h16M4 17.5h16" />
+    </svg>
+  )
+}
+
+function Arrow() {
+  return (
+    <svg width="26" height="12" viewBox="0 0 34 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M0 7h30M25 2l5 5-5 5" />
+    </svg>
+  )
+}
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -27,8 +45,18 @@ export default function Footer() {
           <ul>
             {services.map((s) => <li key={s.slug}>{s.title}</li>)}
           </ul>
-          <a className="footer__ext" href={servicesCta.href} target="_blank" rel="noreferrer">
-            transformations123.com <span aria-hidden="true">&rarr;</span>
+          <a
+            className="footer__cta-bar"
+            href={servicesCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Globe />
+            <span className="footer__cta-text">
+              <strong>{servicesCta.line1}</strong>
+              <span>{servicesCta.line2}</span>
+            </span>
+            <Arrow />
           </a>
         </div>
 
