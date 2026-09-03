@@ -23,9 +23,9 @@ export default function About() {
             <BookButton label={ctas.about} />
           </Reveal>
         </div>
-      </section>
 
-      <section className="section">
+        {/* Part of the same section as the portrait: as two sections their
+            padding stacked, and with the stat strip gone that was a void. */}
         <div className="wrap about-body">
           {about.body.map((para, i) => (
             <Reveal key={i} as="p" delay={i * 60}>{para}</Reveal>

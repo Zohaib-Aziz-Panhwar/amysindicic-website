@@ -597,8 +597,16 @@ p { margin: 0 0 1em; }
   font-size: clamp(.95rem, 1.5vw, 1.2rem); line-height: 1.6;
   color: var(--navy); margin-bottom: 1.6em;
 }
-.about-body { max-width: 62em; }
-.about-body p { font-size: clamp(.86rem, 1.12vw, 1rem); line-height: 1.75; margin-bottom: 1.25em; }
+/* Sized against the measure, not the gap beside it: at 16px this column ran
+   85-103 characters a line, well past comfortable. The type scale lives on
+   the column itself so its em-based width tracks it, holding the line near
+   70 characters at every width instead of only at the widest. */
+.about-body {
+  font-size: clamp(1rem, .55rem + .62vw, 1.32rem);
+  max-width: 50em;
+  margin-top: clamp(30px, 3.6vw, 58px);
+}
+.about-body p { font-size: inherit; line-height: 1.72; margin-bottom: 1.15em; }
 
 .philosophy {
   background: linear-gradient(180deg, var(--navy-hero) 0%, #04203f 100%);
