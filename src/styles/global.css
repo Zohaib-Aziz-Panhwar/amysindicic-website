@@ -391,8 +391,9 @@ p { margin: 0 0 1em; }
 }
 .footer__grid {
   display: grid;
-  /* Services is widest: it carries the button, whose domain cannot break. */
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, .9fr) minmax(0, 1.5fr) minmax(0, 1.1fr);
+  /* Services carries the transformations bar (unbreakable domain) and Connect
+     the CTA, so both need room; Explore's labels are short and can give it up. */
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr) minmax(0, 1.45fr) minmax(0, 1.25fr);
   gap: clamp(22px, 3.4vw, 54px);
   padding-top: clamp(34px, 4.2vw, 62px);
   padding-bottom: clamp(26px, 3.2vw, 46px);
@@ -451,7 +452,8 @@ p { margin: 0 0 1em; }
 }
 .footer__mail svg { color: var(--gold); flex: 0 0 auto; margin-top: 1px; }
 .footer__mail:hover { color: var(--gold); }
-.footer__btn { margin-top: .6em; font-size: clamp(.56rem, .78vw, .68rem); padding: .9em 1.4em; }
+/* Same size and colour as every other CTA; nowrap keeps it to one line. */
+.footer__btn { margin-top: .6em; white-space: nowrap; }
 
 .footer__bar {
   display: flex; align-items: center; justify-content: space-between;
@@ -1408,8 +1410,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   color: #4b5565; font-size: clamp(.82rem, 1.02vw, .94rem);
   margin-bottom: 1.3em;
 }
-.faq-footer a { color: var(--gold-dark); font-weight: 700; }
-.faq-footer a:hover { text-decoration: underline; }
+.faq-footer a:not(.btn) { color: var(--gold-dark); font-weight: 700; }
+.faq-footer a:not(.btn):hover { text-decoration: underline; }
 
 /* =====================================================================
    FOOTER SERVICES BUTTON
