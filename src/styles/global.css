@@ -13,9 +13,7 @@
   --body: #444c58;
   --line: #d8d8d8;
   --sans: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-  /* Grows with the viewport so wide screens do not leave a dead margin,
-     but stops before the measure becomes uncomfortable to read. */
-  --wrap: clamp(1180px, 76vw, 1560px);
+  --wrap: 1180px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -43,7 +41,7 @@ h1, h2, h3, h4 {
 }
 p { margin: 0 0 1em; }
 
-.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(20px, 6%, 80px); }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(20px, 3.4vw, 96px); }
 .section { padding: clamp(46px, 5.4vw, 84px) 0; }
 .center { text-align: center; }
 .gold { color: var(--gold); }
@@ -1443,4 +1441,63 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .footer__cta-bar:hover { transform: none; }
   .footer__cta-bar:hover svg:last-child { transform: none; }
   .faq__chevron { transition: none; }
+}
+
+
+/* =====================================================================
+   WIDE SCREENS
+   Below, the layout is responsive in the usual sense — it reflows. From
+   desktop up it also *scales*: the content column tracks the viewport and
+   the type is sized in vw, so a 2560px screen shows the same proportions
+   as a 1440px one rather than a small island inside a wide frame.
+   ===================================================================== */
+@media (min-width: 1025px) {
+  :root { --wrap: 93vw; }
+}
+
+@media (min-width: 1500px) {
+  /* Type in vw so it keeps pace with the wider column instead of
+     stopping at a pixel cap. */
+  .hero__eyebrow { font-size: 1.02vw; }
+  .hero h1 { font-size: 3.5vw; }
+  .hero p { font-size: 1.16vw; }
+  .hero__rule { width: 4.4vw; height: .21vw; }
+
+  .banner h2 { font-size: 2.3vw; }
+  .banner__right p { font-size: 1.34vw; }
+
+  .sec-title { font-size: 1.95vw; }
+  .svc h3, .aud h3 { font-size: 1.08vw; }
+  .svc p, .aud p { font-size: .93vw; }
+  .svc-cta__text strong { font-size: 1.3vw; }
+  .svc-cta__text span { font-size: .95vw; }
+
+  .appr__n { font-size: 2.9vw; }
+  .appr h3 { font-size: 1.06vw; }
+  .appr p { font-size: .92vw; }
+
+  .post h3 { font-size: .98vw; }
+  .post__date { font-size: .72vw; }
+  .post__excerpt { font-size: .88vw; }
+  .post__more { font-size: .74vw; }
+
+  .closing h2 { font-size: 1.6vw; }
+  .closing__text { font-size: 1.02vw; }
+
+  .btn { font-size: .82vw; }
+  .nav a { font-size: .95vw; }
+  .brand img { height: 5.4vw; }
+  .brand__tag { font-size: .82vw; max-width: 14.5em; }
+
+  .footer__col li, .footer__brand p { font-size: .92vw; }
+  .footer h4 { font-size: .84vw; }
+  .footer__mail { font-size: .84vw; }
+  .footer__bar { font-size: .8vw; }
+  .footer__social { width: 2.4vw; height: 2.4vw; }
+  .footer__social svg { width: 1.35vw; height: 1.35vw; }
+
+  .page-hero h1 { font-size: 3vw; }
+  .page-hero p { font-size: 1.1vw; }
+  .faq__trigger { font-size: 1.1vw; }
+  .faq__panel p { font-size: 1.02vw; }
 }
