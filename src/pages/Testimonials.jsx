@@ -1,5 +1,6 @@
 import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
 import { testimonials } from '../data/content.js'
+import { useTitle } from '../lib/useTitle.js'
 
 function Stars({ count }) {
   if (!count) return null
@@ -41,6 +42,7 @@ function Avatar({ name, photo }) {
 }
 
 export default function Testimonials() {
+  useTitle('Testimonials')
   return (
     <>
       <PageHero

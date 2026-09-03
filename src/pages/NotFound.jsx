@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { PageHero } from '../components/Common.jsx'
 import { ctas } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
+import { useTitle } from '../lib/useTitle.js'
 
 export default function NotFound() {
+  useTitle('Page Not Found')
   return (
     <>
       <PageHero

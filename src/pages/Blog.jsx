@@ -4,6 +4,7 @@ import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
 import ReadingProgress from '../components/ReadingProgress.jsx'
 import { posts } from '../data/content.js'
 import { asset } from '../lib/asset.js'
+import { useTitle } from '../lib/useTitle.js'
 
 const formatDate = (iso) =>
   new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {
@@ -67,6 +68,7 @@ function usePerPage() {
 }
 
 export function BlogIndex() {
+  useTitle('Blog')
   const [params, setParams] = useSearchParams()
   const perPage = usePerPage()
   const topRef = useRef(null)
@@ -170,6 +172,8 @@ export function BlogIndex() {
 export function BlogPost() {
   const { slug } = useParams()
   const index = posts.findIndex((p) => p.slug === slug)
+  // Runs before the early return so the hook order stays stable.
+  useTitle(index === -1 ? 'Blog' : posts[index].title)
   if (index === -1) return <Navigate to="/404" replace />
 
   const post = posts[index]

@@ -3,8 +3,10 @@ import { about, ctas } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
 import { asset } from '../lib/asset.js'
 import CountUp from '../components/CountUp.jsx'
+import { useTitle } from '../lib/useTitle.js'
 
 export default function About() {
+  useTitle('About Amy')
   return (
     <>
       <PageHero title="About Amy" text={about.credentials} />

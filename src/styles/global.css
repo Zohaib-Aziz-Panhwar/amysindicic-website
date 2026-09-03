@@ -100,7 +100,9 @@ p { margin: 0 0 1em; }
 }
 /* The underline treatment must not touch the CTA button — it was overriding
    the button's own padding and border, pushing its label off centre. */
-.nav a:not(.btn) { padding-bottom: 4px; border-bottom: 3px solid transparent; }
+/* The 4px gap plus the 3px underline hang below the text, so an equal 7px
+   above keeps the label centred in the bar and level with the CTA's. */
+.nav a:not(.btn) { padding-top: 7px; padding-bottom: 4px; border-bottom: 3px solid transparent; }
 .nav a:not(.btn):hover { color: var(--gold); }
 .nav a:not(.btn).active { color: #fff; }
 .nav .btn { color: var(--navy); }
@@ -1256,7 +1258,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
     font-size: .82rem; width: 100%; padding: 14px 0;
     border-bottom: 1px solid rgba(255,255,255,.09);
   }
-  .nav a:not(.btn) { padding-bottom: 14px; }
+  .nav a:not(.btn) { padding-top: 14px; padding-bottom: 14px; }
   .nav a.active { color: var(--gold); border-bottom-color: rgba(255,255,255,.09); }
   .nav .btn { width: 100%; text-align: center; margin-top: 16px; font-size: .74rem; padding: 14px 18px; }
 }
@@ -1310,6 +1312,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
   /* The sliding underline is a desktop affordance; at full drawer width it
      reads as a heavy gold bar. Active state is carried by colour instead. */
+  .nav a:not(.btn) { padding-top: 17px; }
   .nav a:not(.btn)::after { display: none; }
   .nav a:not(.btn).active,
   .nav a:not(.btn):hover { color: var(--gold); border-bottom-color: rgba(247,179,36,.35); }

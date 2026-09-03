@@ -7,6 +7,7 @@ import {
 import BookButton from '../components/BookButton.jsx'
 import { asset } from '../lib/asset.js'
 import Typewriter from '../components/Typewriter.jsx'
+import { useTitle } from '../lib/useTitle.js'
 
 function Arrow() {
   return (
@@ -27,6 +28,7 @@ function Globe() {
 }
 
 export default function Home() {
+  useTitle('Home')
   return (
     <>
       {/* ---------------- Hero ---------------- */}

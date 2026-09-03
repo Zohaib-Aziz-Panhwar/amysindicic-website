@@ -1,8 +1,10 @@
 import { PageHero, ClosingBand, Placeholder } from '../components/Common.jsx'
+import { useTitle } from '../lib/useTitle.js'
 
 // Privacy Policy and Terms of Service are linked from the footer in the design
 // but have no supplied copy; both render the same placeholder shell.
 export default function Legal({ title }) {
+  useTitle(title)
   return (
     <>
       <PageHero title={title} />

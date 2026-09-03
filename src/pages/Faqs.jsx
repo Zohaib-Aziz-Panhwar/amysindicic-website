@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
 import BookButton from '../components/BookButton.jsx'
 import { faqs, faqHeading, faqIntro, ctas, servicesCta } from '../data/content.js'
+import { useTitle } from '../lib/useTitle.js'
 
 function Chevron() {
   return (
@@ -17,6 +18,7 @@ function Chevron() {
 }
 
 export default function Faqs() {
+  useTitle('FAQs')
   // Only one answer open at a time; clicking the open question closes it.
   const [openIndex, setOpenIndex] = useState(null)
 
