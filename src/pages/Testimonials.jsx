@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
 import { testimonials } from '../data/content.js'
 import { useTitle } from '../lib/useTitle.js'
@@ -31,8 +32,20 @@ function initialsOf(name) {
 
 /** Reviewer portrait when supplied, otherwise a monogram. */
 function Avatar({ name, photo }) {
-  if (photo) {
-    return <img className="testi__avatar" src={photo} alt={name} width="52" height="52" />
+  // A portrait that fails to load falls back to the monogram rather than
+  // leaving a broken image where a face should be.
+  const [failed, setFailed] = useState(false)
+  if (photo && !failed) {
+    return (
+      <img
+        className="testi__avatar"
+        src={photo}
+        alt={name}
+        width="52"
+        height="52"
+        onError={() => setFailed(true)}
+      />
+    )
   }
   return (
     <span className="testi__avatar testi__avatar--initials" aria-hidden="true">

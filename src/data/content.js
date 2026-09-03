@@ -140,12 +140,6 @@ export const about = {
   philosophyLead: 'Her philosophy is simple:',
   philosophy: 'Many accomplished professionals are not underqualified. They are underpositioned and undertranslated.',
   closing: 'Amy helps clients change that through greater clarity, stronger communication, and a strategy built around who they already are and where they want to go.',
-  // Pulled from the paragraphs above for the stat strip.
-  stats: [
-    { figure: '30+', label: 'Years teaching, coaching\nand developing professionals' },
-    { figure: '4', label: 'Continents of international\nexperience' },
-    { figure: '2', label: 'Institutional clients — the French\ngovernment and the World Bank' },
-  ],
 }
 
 // ---------------------------------------------------------------------------
@@ -209,13 +203,13 @@ export const testimonials = [
     ],
   },
   {
-    name: 'Eudith Januario',
-    role: 'Medical Doctor',
-    date: 'July 28, 2025',
-    photo: asset('/images/testimonials/eudith-januario.jpg'),
+    name: 'Todd Polson',
+    role: 'Investigator, California Department of Consumer Affairs',
+    date: '',
+    photo: asset('/images/testimonials/todd-polson.jpg'),
     rating: 0,
     quote: [
-      'The Best Interview Coach! I was referred to her by another MD and was truly impressed by her expertise, experience, and thorough approach. Her guidance greatly enhanced my interview skills, leading to excellent experiences during my application for the U.S. medical residency matching program.',
+      'Amy helped me update my resumes, cover letters and Social Media presence. After using her services, I got two interviews in two weeks! I passed her information on to a colleague, who landed a job with her help afterwards. She has helped me through my transition from Federal Government to the private sector and I would recommend her services!',
     ],
   },
 ]

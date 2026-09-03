@@ -600,19 +600,6 @@ p { margin: 0 0 1em; }
 .about-body { max-width: 62em; }
 .about-body p { font-size: clamp(.86rem, 1.12vw, 1rem); line-height: 1.75; margin-bottom: 1.25em; }
 
-.stats { background: var(--band-beige); }
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.6vw, 34px); }
-.stat { text-align: center; padding: 0 clamp(8px, 1.6vw, 22px); border-right: 1px solid #d6cec5; }
-.stat:last-child { border-right: 0; }
-.stat__figure {
-  color: var(--gold-dark); font-weight: 800; line-height: 1;
-  font-size: clamp(1.9rem, 4vw, 3.2rem); margin-bottom: .22em;
-}
-.stat p {
-  margin: 0; white-space: pre-line; color: var(--navy);
-  font-size: clamp(.7rem, 1.02vw, .86rem); font-weight: 600; line-height: 1.5;
-}
-
 .philosophy {
   background: linear-gradient(180deg, var(--navy-hero) 0%, #04203f 100%);
   position: relative; overflow: hidden; text-align: center;
@@ -691,8 +678,6 @@ p { margin: 0 0 1em; }
   .testi-grid { columns: 1; }
 }
 @media (max-width: 560px) {
-  .stats-grid { grid-template-columns: 1fr; row-gap: 22px; }
-  .stat { border-right: 0; }
 }
 
 /* =====================================================================
@@ -785,13 +770,11 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .bf-philosophy { width: 32%; opacity: .22; left: -4%; bottom: 4%; }
   .testi { padding: 24px 18px 18px; }
   .testi p { font-size: .9rem; }
-  .stat { padding: 0; }
 }
 
 @media (max-width: 560px) {
   .wrap { padding: 0 18px; }
   .hero__photo { aspect-ratio: 1 / 1; }
-  .stats-grid { row-gap: 20px; }
   .testi__by { align-items: flex-start; }
   .testi__role { font-size: .74rem; }
 }
@@ -870,8 +853,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .post img { transition: transform .55s cubic-bezier(.22,.8,.3,1); }
 .post:hover img { transform: scale(1.06); }
 
-/* ---- About statistics ---- */
-.stat.is-visible .stat__figure { animation: figurePop .7s cubic-bezier(.2,.9,.3,1.25) both; }
 @keyframes figurePop {
   from { opacity: 0; transform: translateY(10px) scale(.86); }
   to   { opacity: 1; transform: none; }
@@ -901,8 +882,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .typewriter__caret,
   .bf-audience, .bf-approach, .bf-closing, .bf-philosophy, .bf-banner,
   .appr__arrow svg,
-  .appr.is-visible .appr__n,
-  .stat.is-visible .stat__figure { animation: none !important; }
+  .appr.is-visible .appr__n { animation: none !important; }
   .btn:hover::after { animation: none; }
   .svc__rule { transform: none; }
   .svc:hover, .aud:hover, .post:hover, .svc-cta:hover { transform: none; }

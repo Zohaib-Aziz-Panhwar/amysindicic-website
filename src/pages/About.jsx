@@ -2,7 +2,6 @@ import { PageHero, ClosingBand, Reveal } from '../components/Common.jsx'
 import { about, ctas } from '../data/content.js'
 import BookButton from '../components/BookButton.jsx'
 import { asset } from '../lib/asset.js'
-import CountUp from '../components/CountUp.jsx'
 import { useTitle } from '../lib/useTitle.js'
 
 export default function About() {
@@ -23,18 +22,6 @@ export default function About() {
             <p className="about-lede">{about.lede}</p>
             <BookButton label={ctas.about} />
           </Reveal>
-        </div>
-      </section>
-
-      {/* Experience at a glance. */}
-      <section className="section stats">
-        <div className="wrap stats-grid">
-          {about.stats.map((s, i) => (
-            <Reveal key={s.figure} className="stat" delay={i * 90}>
-              <div className="stat__figure"><CountUp value={s.figure} /></div>
-              <p>{s.label}</p>
-            </Reveal>
-          ))}
         </div>
       </section>
 
