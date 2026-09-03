@@ -64,7 +64,7 @@ p { margin: 0 0 1em; }
 /* ---------- Header ---------- */
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 60;
-  padding: 8px 0;
+  padding: 6px 0;
   transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
 }
 .header--transparent { background: transparent; }
@@ -81,7 +81,9 @@ p { margin: 0 0 1em; }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand { display: flex; align-items: center; gap: clamp(10px, 1.1vw, 16px); flex: 0 0 auto; }
 .brand img {
-  height: clamp(58px, 7vw, 86px); width: auto;
+  /* The logo sets the bar's height, so keeping it trim is what stops the
+     menu row floating in a tall band of empty navy. */
+  height: clamp(46px, 4.6vw, 62px); width: auto;
   background: #fff; border-radius: 4px;
   transition: height .3s ease;
 }
@@ -92,7 +94,7 @@ p { margin: 0 0 1em; }
   /* Wide enough to break as two lines rather than four. */
   max-width: 14.5em; flex: 0 0 auto;
 }
-.header--compact .brand img { height: clamp(44px, 5vw, 60px); }
+.header--compact .brand img { height: clamp(38px, 3.8vw, 50px); }
 .nav { display: flex; align-items: center; gap: clamp(14px, 3.4vw, 50px); }
 .nav a {
   font-size: clamp(.66rem, 1.16vw, .95rem); font-weight: 700; letter-spacing: .03em;
