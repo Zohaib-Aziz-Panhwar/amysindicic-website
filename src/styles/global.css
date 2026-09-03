@@ -428,7 +428,10 @@ p { margin: 0 0 1em; }
   font-size: clamp(.78rem, .92vw, .86rem);
 }
 .footer__col a { transition: color .2s ease, padding-left .2s ease; }
-.footer__col a:not(.footer__cta-bar):not(.footer__social):hover { color: var(--gold); padding-left: 4px; }
+/* The link hover must skip both gold bars and the CTA: on them it turned
+   the label gold-on-gold and nudged it sideways. */
+.footer__col a:not(.footer__cta-bar):not(.footer__social):not(.btn):hover { color: var(--gold); padding-left: 4px; }
+.footer__btn:hover { color: var(--navy); }
 .footer__ext {
   display: inline-flex; align-items: center; gap: 7px; margin-top: .5em;
   color: var(--gold); font-weight: 700; letter-spacing: .04em;
@@ -481,7 +484,7 @@ p { margin: 0 0 1em; }
   .footer__btn { width: 100%; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .footer__col a:not(.footer__cta-bar):hover { padding-left: 0; }
+  .footer__col a:not(.footer__cta-bar):not(.btn):hover { padding-left: 0; }
   .footer__social:hover { transform: none; }
 }
 
