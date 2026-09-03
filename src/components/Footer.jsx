@@ -45,6 +45,19 @@ export default function Footer() {
           <ul>
             {services.map((s) => <li key={s.slug}>{s.title}</li>)}
           </ul>
+          <a
+            className="footer__cta-bar"
+            href={servicesCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Globe />
+            <span className="footer__cta-text">
+              <strong>{servicesCta.line1}</strong>
+              <span>{servicesCta.line2}</span>
+            </span>
+            <Arrow />
+          </a>
         </div>
 
         <div className="footer__col footer__connect">
@@ -80,21 +93,6 @@ export default function Footer() {
             {ctas.footer}
           </a>
         </div>
-
-        {/* Spans the grid so it is never squeezed by a column's width. */}
-        <a
-          className="footer__cta-bar"
-          href={servicesCta.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Globe />
-          <span className="footer__cta-text">
-            <strong>{servicesCta.line1}</strong>
-            <span>{servicesCta.line2}</span>
-          </span>
-          <Arrow />
-        </a>
       </div>
 
       <div className="wrap footer__bar">
