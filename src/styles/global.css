@@ -13,7 +13,9 @@
   --body: #444c58;
   --line: #d8d8d8;
   --sans: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-  --wrap: 1180px;
+  /* Grows with the viewport so wide screens do not leave a dead margin,
+     but stops before the measure becomes uncomfortable to read. */
+  --wrap: clamp(1180px, 76vw, 1560px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -110,6 +112,8 @@ p { margin: 0 0 1em; }
 
 /* ---------- Hero ---------- */
 .hero {
+  /* The width the content column actually occupies at this viewport. */
+  --content: min(var(--wrap), 92vw);
   position: relative; overflow: hidden;
   background:
     radial-gradient(120% 120% at 78% 40%, #0c2447 0%, transparent 55%),
@@ -126,7 +130,8 @@ p { margin: 0 0 1em; }
   background: radial-gradient(38% 54% at 76% 50%, rgba(247,179,36,.16), transparent 64%);
 }
 .hero__photo {
-  position: absolute; right: 0; top: clamp(58px, 6.6vw, 84px); bottom: 0; width: 46%;
+  position: absolute; right: 0; top: clamp(58px, 6.6vw, 84px); bottom: 0;
+  width: min(calc(50% - var(--content) * 0.02), 1040px);
   background-size: cover; background-position: 50% 42%;
   /* Feathered on the left and top rather than dimmed: she keeps full
      brightness and reads as a foreground subject emerging from the room,
