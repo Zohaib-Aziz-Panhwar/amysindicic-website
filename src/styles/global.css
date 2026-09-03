@@ -80,11 +80,12 @@ p { margin: 0 0 1em; }
 .header .wrap { padding: 0 clamp(12px, 2.2%, 30px); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand { display: flex; align-items: center; gap: clamp(10px, 1.1vw, 16px); flex: 0 0 auto; }
-.brand img {
+.brand__logo {
   /* The logo sets the bar's height, so keeping it trim is what stops the
      menu row floating in a tall band of empty navy. */
-  height: clamp(46px, 4.6vw, 62px); width: auto;
-  background: #fff; border-radius: 4px;
+  display: block; height: clamp(46px, 4.6vw, 62px);
+  aspect-ratio: 888 / 879;
+  background: #fff center / contain no-repeat; border-radius: 4px;
   transition: height .3s ease;
 }
 .brand__tag {
@@ -94,7 +95,7 @@ p { margin: 0 0 1em; }
   /* Wide enough to break as two lines rather than four. */
   max-width: 14.5em; flex: 0 0 auto;
 }
-.header--compact .brand img { height: clamp(38px, 3.8vw, 50px); }
+.header--compact .brand__logo { height: clamp(38px, 3.8vw, 50px); }
 .nav { display: flex; align-items: center; gap: clamp(14px, 3.4vw, 50px); }
 .nav a {
   font-size: clamp(.66rem, 1.16vw, .95rem); font-weight: 700; letter-spacing: .03em;
@@ -402,9 +403,11 @@ p { margin: 0 0 1em; }
   padding-top: clamp(34px, 4.2vw, 62px);
   padding-bottom: clamp(26px, 3.2vw, 46px);
 }
-.footer__brand img {
-  height: clamp(52px, 5.4vw, 68px); width: auto;
-  background: #fff; border-radius: 4px; margin-bottom: 1.1em;
+.footer__logo {
+  display: block; height: clamp(52px, 5.4vw, 68px);
+  aspect-ratio: 888 / 879;
+  background: #fff center / contain no-repeat;
+  border-radius: 4px; margin-bottom: 1.1em;
 }
 .footer__brand p {
   margin: 0; max-width: 30ch; line-height: 1.7;
@@ -1228,8 +1231,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
 @media (max-width: 700px) {
   .header { padding: 7px 0; }
   .header--compact { padding: 5px 0; }
-  .brand img { height: 46px; }
-  .header--compact .brand img { height: 40px; }
+  .brand__logo { height: 46px; }
+  .header--compact .brand__logo { height: 40px; }
 
   .burger {
     display: grid; place-content: center;
@@ -1497,7 +1500,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
   .btn { font-size: .82vw; }
   .nav a { font-size: .95vw; }
-  .brand img { height: 5.4vw; }
+  .brand__logo { height: 5.4vw; }
   .brand__tag { font-size: .82vw; max-width: 14.5em; }
 
   .footer__col li, .footer__brand p { font-size: .92vw; }

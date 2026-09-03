@@ -27,7 +27,12 @@ export default function Footer() {
       <InstagramGradientDefs />
       <div className="wrap footer__grid">
         <div className="footer__brand">
-          <img src={asset('/images/logo.png')} alt={site.name} />
+          <span
+            className="footer__logo"
+            style={{ backgroundImage: `url(${asset('/images/logo.png')})` }}
+            role="img"
+            aria-label={site.name}
+          />
           <p>{footer.blurb}</p>
         </div>
 

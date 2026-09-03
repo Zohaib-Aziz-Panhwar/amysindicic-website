@@ -38,7 +38,14 @@ export default function Header() {
     >
       <div className="wrap header__inner">
         <Link to="/" className="brand" aria-label={`${site.name} — home`}>
-          <img src={asset('/images/logo.png')} alt={site.name} />
+          {/* Painted as a background rather than an <img>: browsers and
+              extensions hang a hover toolbar off images, and it landed
+              right on top of the logo. The link carries the label. */}
+          <span
+            className="brand__logo"
+            style={{ backgroundImage: `url(${asset('/images/logo.png')})` }}
+            aria-hidden="true"
+          />
           <span className="brand__tag">{site.tagline}</span>
         </Link>
 
