@@ -584,7 +584,8 @@ p { margin: 0 0 1em; }
   gap: clamp(24px, 4vw, 58px); align-items: center;
 }
 .about-portrait img {
-  width: 100%; height: auto; border-radius: 4px;
+  /* Capped so the portrait cannot tower over the copy on a wide display. */
+  width: 100%; max-width: 660px; height: auto; border-radius: 4px;
   box-shadow: 0 24px 60px rgba(0,17,37,.28);
   border-bottom: 4px solid var(--gold);
 }
@@ -604,7 +605,6 @@ p { margin: 0 0 1em; }
 .about-body {
   font-size: clamp(1rem, .55rem + .62vw, 1.32rem);
   max-width: 50em;
-  margin-top: clamp(30px, 3.6vw, 58px);
 }
 .about-body p { font-size: inherit; line-height: 1.72; margin-bottom: 1.15em; }
 
@@ -772,7 +772,6 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .about-portrait img { max-width: 280px; }
   .about-name { font-size: 1.5rem; }
   .about-lede { font-size: 1rem; }
-  .about-body p { font-size: .93rem; }
   .about-lead .btn { width: 100%; text-align: center; }
   .philosophy__quote { font-size: clamp(1.05rem, 5.6vw, 1.5rem); }
   .bf-philosophy { width: 32%; opacity: .22; left: -4%; bottom: 4%; }
