@@ -6,3 +6,6 @@ dist/
 Thumbs.db
 .env
 .env.*
+
+# Site editor login (a scrypt hash, but still local-only)
+tools/admin/credentials.local.json

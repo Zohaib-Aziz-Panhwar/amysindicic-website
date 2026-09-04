@@ -96,7 +96,7 @@ function image(obj, key, { label, dir = '', max = 1600, help } = {}) {
     if (!file) return
     try {
       const dataUrl = await resize(file, max)
-      const res = await fetch('/api/upload', {
+      const res = await api('/api/upload', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ name: file.name, dir, dataUrl }),
@@ -368,8 +368,18 @@ function render() {
 
 /* ------------------------------------------------------------------- io -- */
 
+/** Any call can come back 401 once the session lapses; send the user to sign in. */
+async function api(path, options = {}) {
+  const res = await fetch(path, { credentials: 'same-origin', ...options })
+  if (res.status === 401) {
+    location.replace('/login')
+    throw new Error('Session expired')
+  }
+  return res
+}
+
 async function load() {
-  const res = await fetch('/api/data')
+  const res = await api('/api/data')
   if (!res.ok) throw new Error('Could not read the content files')
   data = await res.json()
   original = structuredClone(data)
@@ -384,7 +394,7 @@ async function save() {
     for (const p of data.posts) if (!String(p.slug).trim()) p.slug = slugify(p.title) || 'post'
     for (const t of data.content.testimonials) t.rating = Number(t.rating) || 0
 
-    const res = await fetch('/api/data', {
+    const res = await api('/api/data', {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -412,6 +422,12 @@ function reloadPreview() {
 
 /* ----------------------------------------------------------------- boot -- */
 
+$('signout').addEventListener('click', async () => {
+  if (dirty && !confirm('You have unsaved changes. Sign out anyway?')) return
+  dirty = false
+  await fetch('/api/logout', { method: 'POST', credentials: 'same-origin' })
+  location.replace('/login')
+})
 $('save').addEventListener('click', save)
 $('revert').addEventListener('click', () => {
   if (!confirm('Discard every change since the last save?')) return

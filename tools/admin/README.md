@@ -24,6 +24,25 @@ bash scripts/deploy.sh "what changed"
 
 Stop both with Ctrl+C.
 
+## Signing in
+
+The first time you open the editor it asks you to choose a username and
+password. After that it asks you to sign in.
+
+The password itself is never stored — only a scrypt hash of it, in
+`tools/admin/credentials.local.json`, which git ignores. Sessions are held in
+memory and last 12 hours, so restarting the editor signs you out. Six wrong
+attempts locks sign-in for 15 minutes.
+
+To reset a forgotten password, delete that file and reload — the editor treats
+it as a first run again.
+
+Be clear about what this login is and is not. The editor listens on
+`127.0.0.1` only, so it is already unreachable from any other machine. The
+login guards against someone sitting down at an unlocked laptop, and it is the
+piece that would have to exist before the editor could ever be hosted. It is
+not on its own what would make hosting it safe.
+
 ## What it edits
 
 - **Blog** — posts, their cover photos, and the article text. Reorder or delete.
@@ -80,8 +99,8 @@ deploy, and a bad edit is undone with `git checkout src/data`.
 
 ## Notes
 
-- The editor binds to `127.0.0.1` and has no login. It is a local tool; do not
-  expose it. Nothing about it ships in the built site.
+- The editor binds to `127.0.0.1`. It is a local tool; do not expose it.
+  Nothing about it ships in the built site.
 - **Undo changes** reverts everything back to the last save. Once saved, use
   git.
 - Closing the tab with unsaved changes prompts first.
