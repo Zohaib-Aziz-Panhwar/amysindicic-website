@@ -14,7 +14,7 @@ export default function About() {
       <section className="section">
         <div className="wrap about-lead">
           <Reveal className="about-portrait">
-            <img src={asset('/images/amy-portrait.jpg')} alt={about.name} width="720" height="900" />
+            <img src={about.portrait} alt={about.name} width="720" height="900" />
           </Reveal>
           {/* The whole biography sits beside the portrait rather than
               running on beneath it, which halves the page's height. */}

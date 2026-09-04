@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amy Sindicic — Site Editor</title>
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body>
+  <header class="bar">
+    <span class="bar__title">Site Editor</span>
+    <nav class="tabs" id="tabs"></nav>
+    <span class="bar__spacer"></span>
+    <span class="status" id="status">Loading…</span>
+    <button class="btn btn--ghost" id="revert" disabled>Undo changes</button>
+    <button class="btn" id="save" disabled>Save</button>
+  </header>
+
+  <main class="split">
+    <section class="editor" id="editor"></section>
+    <section class="preview">
+      <div class="preview__bar">
+        <span>Live preview</span>
+        <select id="previewPage">
+          <option value="/">Home</option>
+          <option value="/about">About Amy</option>
+          <option value="/blog">Blog</option>
+          <option value="/testimonials">Testimonials</option>
+          <option value="/faqs">FAQs</option>
+        </select>
+        <button class="btn btn--ghost btn--sm" id="reload">Refresh</button>
+      </div>
+      <iframe id="preview" title="Site preview"></iframe>
+    </section>
+  </main>
+
+  <script type="module" src="/admin.js"></script>
+</body>
+</html>

@@ -7,15 +7,22 @@ Marketing site built with React + Vite.
 ```bash
 npm install
 npm run dev      # http://localhost:5173
+npm run admin    # the site editor, with a live preview beside it
 npm run build    # production build into dist/
 npm run preview  # preview the production build
 ```
 
 ## Content
 
-All copy lives in [`src/data/content.js`](src/data/content.js) — services,
-audiences, the approach steps, blog posts, the About text and the testimonials.
-Editing that one file updates every page; no component changes needed.
+All copy lives in [`src/data/content.json`](src/data/content.json) and
+[`src/data/posts.json`](src/data/posts.json) — services, audiences, the approach
+steps, blog posts, the About text, the testimonials and the FAQs.
+[`src/data/content.js`](src/data/content.js) only re-exports them and resolves
+image paths against the base path.
+
+Edit either through the site editor (`npm run admin`, see
+[`tools/admin/README.md`](tools/admin/README.md)) or by hand — both write the
+same shape.
 
 Images live in [`public/images/`](public/images). Reviewer portraits go in
 `public/images/testimonials/` and are wired up via the `photo` field on each
@@ -23,8 +30,18 @@ testimonial (an empty value falls back to an initials monogram).
 
 ## Deployment
 
-Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
-which builds the site and publishes it to GitHub Pages.
+```bash
+bash scripts/deploy.sh "what changed"
+```
+
+That builds the site and publishes it to the `gh-pages` branch of the `parix`
+remote, live at <https://parix-ai.github.io/amy-site/>.
+
+The branch also carries files this project does not build — Amy's PDFs under
+`assets/docs`, and `assets/img` and `assets/brand` from the previous site — so
+the script copies the build *over* the branch rather than replacing it, and
+prunes only superseded bundles. It refuses to publish if the built `index.html`
+does not carry the expected base path.
 
 GitHub Pages serves project sites from `/<repo>/`, so
 [`vite.config.js`](vite.config.js) derives `base` from `GITHUB_REPOSITORY` at

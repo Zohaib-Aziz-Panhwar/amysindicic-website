@@ -35,7 +35,7 @@ export default function Home() {
       <section className="hero">
         {/* Amy's photograph is kept from the previous approved design, per the
             client — it is deliberately NOT taken from the newer comp. */}
-        <div className="hero__photo" style={{ backgroundImage: `url(${asset('/images/amy-hero.jpg')})` }} />
+        <div className="hero__photo" style={{ backgroundImage: `url(${hero.photo})` }} />
         <img className="hero__butterfly" src={asset('/images/bf-hero.png')} alt="" aria-hidden="true" />
         <div className="wrap">
           <div className="hero__inner">
