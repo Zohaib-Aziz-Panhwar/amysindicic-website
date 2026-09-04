@@ -9,3 +9,6 @@ Thumbs.db
 
 # Site editor login (a scrypt hash, but still local-only)
 tools/admin/credentials.local.json
+
+# Site backups hold database credentials
+backups/
