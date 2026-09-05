@@ -15,11 +15,10 @@ That starts two things:
 | `http://localhost:5173` | the site itself, shown in the preview pane |
 
 Edit on the left, watch the real site on the right. **Save** writes the changes
-to disk; the preview reloads a moment later. Nothing reaches the live site until
-you deploy:
+to disk; the preview reloads a moment later. Nothing reaches the live site (amysindicic.com) until you deploy:
 
 ```
-bash scripts/deploy.sh "what changed"
+bash scripts/deploy-bluehost.sh
 ```
 
 Stop both with Ctrl+C.

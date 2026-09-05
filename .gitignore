@@ -15,3 +15,6 @@ backups/
 
 # Build artefact for the Bluehost upload
 upload-to-bluehost.zip
+
+# FTP login for the Bluehost deploy
+deploy/bluehost/.ftp-credentials
