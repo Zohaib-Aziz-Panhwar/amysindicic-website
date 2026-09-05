@@ -23,6 +23,12 @@ Options -Indexes
   # single-page-app fallback or WordPress would never see a request.
   RewriteRule ^old-site(/|$) - [L]
 
+  # The archived site's content keeps its original absolute URLs
+  # (/wp-content/..., /wp-includes/...). Send those into the archive so its
+  # pages keep their images without rewriting anything in the database.
+  RewriteRule ^(wp-content|wp-includes|wp-admin)/(.*)$ /old-site/$1/$2 [L]
+  RewriteRule ^(wp-login\.php|xmlrpc\.php)$ /old-site/$1 [L]
+
   # Articles that moved under /blog/ in the rebuild. Old links and anything
   # Google still has indexed keep working.
   RewriteRule ^the-visibility-gap-why-qualified-leaders-get-overlooked/?$ /blog/the-visibility-gap-why-qualified-leaders-get-overlooked [R=301,L]
