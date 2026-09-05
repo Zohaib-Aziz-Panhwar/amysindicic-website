@@ -48,6 +48,34 @@ Checked from the public side on 2026-09-04:
 | Canonical host | `www.` already 301s to the apex `amysindicic.com` |
 | `/old-site/` | free (404) |
 
+## The account's existing backups are empty
+
+Checked on 2026-09-05 through the cPanel API:
+
+| File | Date | Size |
+| --- | --- | --- |
+| `backup-9.5.2026_01-32-32_zrvpfwmy.tar.gz` | today | **13 bytes** |
+| `zrvpfwmy_WPDPP.1788453528.sql.gz` (amysindicic) | 2026-09-03 | **50 bytes** |
+| `zrvpfwmy_WPIQL.1788453528.sql.gz` | 2026-09-03 | **50 bytes** |
+| `zrvpfwmy_WP4WU.1788453528.sql.gz` | 2026-09-03 | **50 bytes** |
+| `zrvpfwmy_WPIMR.1788193924.sql.gz` | 2026-08-31 | **50 bytes** |
+
+A 50-byte gzip is an empty stream. Amy's database is 177 MB; it cannot
+compress to 50 bytes. The most recent backups that contain anything are plain
+`.sql` files from **2020-2021** (24 MB, 4.9 MB, 1.7 MB).
+
+Sizes were sanity-checked against known files in the same listing —
+`wp-login.php` reports 52,536 bytes — so this is real, not a reporting quirk.
+
+**The account has no usable backup**, and has not had one for years, while
+backups appear in the file listing as though they ran. Nothing in this
+migration may proceed until a real backup exists and has been opened and
+checked. This is exactly what `scripts/verify-backup.sh` is for.
+
+Also worth attention: `public_html/amysindicic2/error_log` is **188 MB**. The
+site is logging errors continuously, and that file alone is a fifth of the
+account's disk use.
+
 ## Read this before starting
 
 Moving WordPress touches the only copy of the database. Two things go wrong
