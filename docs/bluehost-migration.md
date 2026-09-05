@@ -48,33 +48,33 @@ Checked from the public side on 2026-09-04:
 | Canonical host | `www.` already 301s to the apex `amysindicic.com` |
 | `/old-site/` | free (404) |
 
-## The account's existing backups are empty
+## The state of the account's backups
 
-Checked on 2026-09-05 through the cPanel API:
+Checked on 2026-09-05, over FTP (which reports true file sizes).
 
-| File | Date | Size |
-| --- | --- | --- |
-| `backup-9.5.2026_01-32-32_zrvpfwmy.tar.gz` | today | **13 bytes** |
-| `zrvpfwmy_WPDPP.1788453528.sql.gz` (amysindicic) | 2026-09-03 | **50 bytes** |
-| `zrvpfwmy_WPIQL.1788453528.sql.gz` | 2026-09-03 | **50 bytes** |
-| `zrvpfwmy_WP4WU.1788453528.sql.gz` | 2026-09-03 | **50 bytes** |
-| `zrvpfwmy_WPIMR.1788193924.sql.gz` | 2026-08-31 | **50 bytes** |
+**There is a good full-account backup**, taken today:
 
-A 50-byte gzip is an empty stream. Amy's database is 177 MB; it cannot
-compress to 50 bytes. The most recent backups that contain anything are plain
-`.sql` files from **2020-2021** (24 MB, 4.9 MB, 1.7 MB).
+```
+backup-9.5.2026_01-32-32_zrvpfwmy.tar.gz    5,178,217,281 bytes (4.82 GB)
+```
 
-Sizes were sanity-checked against known files in the same listing —
-`wp-login.php` reports 52,536 bytes — so this is real, not a reporting quirk.
+A cPanel full backup contains every site's files and every database, so this
+one artefact covers all four sites.
 
-**The account has no usable backup**, and has not had one for years, while
-backups appear in the file listing as though they ran. Nothing in this
-migration may proceed until a real backup exists and has been opened and
-checked. This is exactly what `scripts/verify-backup.sh` is for.
+**The standalone per-database dumps are empty, and have been for years.**
+Every automated `.sql.gz` in the home directory is exactly 50 bytes — an empty
+gzip stream — going back through 2024 and 2025. The newest database dumps with
+real content are plain `.sql` files from 2020-2021. So the nightly per-database
+backup on this account silently produces nothing; only the full-account backup
+works.
+
+A correction worth recording: the cPanel API's `Fileman/list_files` reported
+that 4.82 GB archive as **13 bytes**. Its size field is not trustworthy for
+recently written files. FTP gave the real number. Do not judge a backup by that
+API's size field — verify the file itself.
 
 Also worth attention: `public_html/amysindicic2/error_log` is **188 MB**. The
-site is logging errors continuously, and that file alone is a fifth of the
-account's disk use.
+site is logging errors continuously.
 
 ## Read this before starting
 
