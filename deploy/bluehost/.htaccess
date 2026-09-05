@@ -23,6 +23,9 @@ Options -Indexes
   # single-page-app fallback or WordPress would never see a request.
   RewriteRule ^old-site(/|$) - [L]
 
+  # The editor is PHP and serves itself; the app router must not swallow it.
+  RewriteRule ^admin(/|$) - [L]
+
   # The archived site's content keeps its original absolute URLs
   # (/wp-content/..., /wp-includes/...). Send those into the archive so its
   # pages keep their images without rewriting anything in the database.

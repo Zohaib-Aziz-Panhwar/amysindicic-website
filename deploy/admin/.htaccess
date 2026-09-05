@@ -1,0 +1,24 @@
+# The editor. PHP handles its own auth; these are the surrounding guards.
+
+Options -Indexes
+
+<IfModule mod_headers.c>
+  # The editor is not something to embed, sniff, or leak referrers from.
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "same-origin"
+  Header always set Cache-Control "no-store"
+</IfModule>
+
+# Sessions and the password hash live above the web root, but if the PHP
+# handler is ever misconfigured these must not be served as text.
+<FilesMatch "\.(json|log|bak|tmp)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Credentials must never cross the wire unencrypted.
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>

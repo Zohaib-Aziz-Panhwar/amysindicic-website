@@ -1,16 +1,25 @@
 /**
- * The site's content, loaded from the JSON the admin panel edits.
+ * The site's content.
  *
- * content.json and posts.json are the source of truth. This module only
- * re-exports them under the names the pages already import, and resolves the
- * stored image paths ("/images/x.jpg") through Vite's base path, which differs
- * between local dev and the GitHub Pages sub-directory.
+ * public/content/content.json and posts.json are the source of truth, and they
+ * are FETCHED AT RUNTIME rather than bundled -- that is what lets the editor
+ * change the live site by writing two files, with no rebuild. main.jsx loads
+ * them before this module is ever imported and leaves them on window; see
+ * loadContent() there.
  *
- * Editing the JSON by hand is fine; the admin panel writes the same shape.
+ * This module only re-exports them under the names the pages already import,
+ * and resolves stored image paths ("/images/x.jpg") through the base path.
  */
 import { asset } from '../lib/asset.js'
-import data from './content.json'
-import postsData from './posts.json'
+
+const store = globalThis.__SITE_CONTENT__
+if (!store) {
+  throw new Error(
+    'Site content was not loaded. main.jsx must fetch it before importing this module.',
+  )
+}
+const data = store.content
+const postsData = store.posts
 
 export const site = data.site
 export const ctas = data.ctas
