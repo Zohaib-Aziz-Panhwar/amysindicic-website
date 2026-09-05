@@ -12,3 +12,6 @@ tools/admin/credentials.local.json
 
 # Site backups hold database credentials
 backups/
+
+# Build artefact for the Bluehost upload
+upload-to-bluehost.zip
