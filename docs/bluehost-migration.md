@@ -6,6 +6,33 @@ site at the domain root. One WordPress, one database, no duplicate content.
 
 **Nothing here has been run yet.** It needs Bluehost cPanel access.
 
+## Read this first: the account hosts four sites
+
+`amysindicic.com` is an **addon domain**. Its document root is
+
+```
+/home4/zrvpfwmy/public_html/amysindicic2
+```
+
+**not** `public_html`. `public_html` is the main domain,
+`medicalenglish123.com`, which is a different live site.
+
+| Domain | Document root |
+| --- | --- |
+| medicalenglish123.com (main) | `public_html` |
+| **amysindicic.com** | **`public_html/amysindicic2`** |
+| businessenglish123.com | `public_html/businessenglish123` |
+| transformations123.com | `public_html/transformations123` |
+
+Everywhere below, "the site's folder" means `public_html/amysindicic2`.
+Nothing in this job touches `public_html` itself or the other three sites.
+An earlier draft of this runbook said to move the contents of `public_html`
+into `old-site/` — doing that would have taken down medicalenglish123.com.
+
+There are six databases on the account, four of them in use. Confirm which one
+belongs to Amy's site by reading `DB_NAME` from
+`public_html/amysindicic2/wp-config.php` — never guess from the names.
+
 ## What is there now
 
 Checked from the public side on 2026-09-04:
@@ -62,24 +89,25 @@ Keep it off shared drives.
 
 ### 2. Note the database name
 
-Open `public_html/wp-config.php` in the cPanel File Manager and note `DB_NAME`,
-`DB_USER`, `DB_HOST`. Nothing needs changing — the moved site keeps using the
+Open `public_html/amysindicic2/wp-config.php` in the cPanel File Manager and
+note `DB_NAME`, `DB_USER`, `DB_HOST`. Nothing needs changing — the moved site keeps using the
 same database — but you want them written down before moving anything.
 
 ### 3. Move WordPress into the subdirectory
 
-In **File Manager**, inside `public_html`:
+In **File Manager**, inside `public_html/amysindicic2` — check the path in the
+breadcrumb before selecting anything:
 
 1. Create the folder `old-site`.
-2. Select everything else in `public_html` — **including the dotfiles**
+2. Select everything else in `amysindicic2` — **including the dotfiles**
    `.htaccess` and `.user.ini`; turn on *Settings → Show Hidden Files* first —
    and **Move** it into `old-site`.
-3. `public_html` should now contain only `old-site`.
+3. `amysindicic2` should now contain only `old-site`.
 
 The site is broken from here until step 5. It is the only window of downtime,
-and it is short.
+and it is short. The other three sites on the account are unaffected.
 
-Edit `public_html/old-site/.htaccess` so WordPress's own rules know where they
+Edit `amysindicic2/old-site/.htaccess` so WordPress's own rules know where they
 live — change the two `/` to `/old-site/`:
 
 ```apache
@@ -124,9 +152,9 @@ ran, check a media URL in the library rather than running it again.
 
 1. Build: `npm run build` — plain, no base path, which is what the config
    produces when `GITHUB_REPOSITORY` is unset.
-2. Upload the **contents** of `dist/` into `public_html` (the files, not the
-   `dist` folder itself).
-3. Upload `deploy/bluehost/.htaccess` as `public_html/.htaccess`.
+2. Upload the **contents** of `dist/` into `public_html/amysindicic2` (the
+   files, not the `dist` folder itself).
+3. Upload `deploy/bluehost/.htaccess` as `amysindicic2/.htaccess`.
 4. Purge Endurance Cache, and ask Bluehost support to purge the nginx layer.
 
 ### 6. Check, in this order
@@ -144,7 +172,7 @@ Hard-reload at least once, so you are not reading your own cache.
 
 ### Rolling back
 
-Move everything out of `old-site` back into `public_html`, delete the new
+Move everything out of `old-site` back into `amysindicic2`, delete the new
 files, and set `siteurl`/`home` back to `https://amysindicic.com`. If the
 content URLs were already rewritten, run Better Search Replace the other way,
 or restore the database from step 1.
