@@ -17,21 +17,23 @@ site at the domain root. One WordPress, one database, no duplicate content.
 **not** `public_html`. `public_html` is the main domain,
 `medicalenglish123.com`, which is a different live site.
 
-| Domain | Document root |
-| --- | --- |
-| medicalenglish123.com (main) | `public_html` |
-| **amysindicic.com** | **`public_html/amysindicic2`** |
-| businessenglish123.com | `public_html/businessenglish123` |
-| transformations123.com | `public_html/transformations123` |
+| Domain | Document root | Database | Table prefix |
+| --- | --- | --- | --- |
+| medicalenglish123.com (main) | `public_html` | `zrvpfwmy_WPIMR` | `Xc0_` |
+| **amysindicic.com** | **`public_html/amysindicic2`** | **`zrvpfwmy_WPDPP`** | **`sSD_`** |
+| businessenglish123.com | `public_html/businessenglish123` | `zrvpfwmy_WPIQL` | `6pU_` |
+| transformations123.com | `public_html/transformations123` | `zrvpfwmy_WP4WU` | `hGb_` |
+
+Read from each site's `wp-config.php` on 2026-09-05, not guessed. Note the
+table prefixes are **not** `wp_`: Amy's options table is `sSD_options`.
 
 Everywhere below, "the site's folder" means `public_html/amysindicic2`.
 Nothing in this job touches `public_html` itself or the other three sites.
 An earlier draft of this runbook said to move the contents of `public_html`
 into `old-site/` — doing that would have taken down medicalenglish123.com.
 
-There are six databases on the account, four of them in use. Confirm which one
-belongs to Amy's site by reading `DB_NAME` from
-`public_html/amysindicic2/wp-config.php` — never guess from the names.
+Six databases exist; the two not listed above are empty. The names carry no
+hint of which site they serve, so always confirm from `wp-config.php`.
 
 ## What is there now
 
@@ -68,10 +70,15 @@ which looks exactly like a broken deploy.
 
 In cPanel:
 
-1. **Backup Wizard → Back Up → Home Directory** → download the archive.
-2. **phpMyAdmin** → select the WordPress database → **Export** → *Custom* →
-   compression *none* → **Go**. Custom, not Quick, so the output is a complete
-   dump with `CREATE TABLE` statements.
+1. **Backup Wizard → Back Up → Home Directory** → download the archive. This
+   covers all four sites' files in one go.
+2. **phpMyAdmin** → for **each** of the four databases above → **Export** →
+   *Custom* → compression *none* → **Go**. Custom, not Quick, so the output is
+   a complete dump with `CREATE TABLE` statements.
+
+Keep each site's files and database in its own folder under
+`backups/<date>/<domain>/`, so a restore never has to guess which dump belongs
+to which site.
 
 Put both files in a folder here and check them:
 
@@ -121,8 +128,9 @@ RewriteRule . /old-site/index.php [L]
 
 ### 4. Point WordPress at its new address
 
-In **phpMyAdmin**, in the `wp_options` table, change the two rows
-`siteurl` and `home`:
+In **phpMyAdmin**, open database `zrvpfwmy_WPDPP` and find the **`sSD_options`**
+table — not `wp_options`, this install uses the `sSD_` prefix. Change the two
+rows `siteurl` and `home`:
 
 ```
 https://amysindicic.com   ->   https://amysindicic.com/old-site
