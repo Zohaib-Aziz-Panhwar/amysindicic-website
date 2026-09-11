@@ -44,6 +44,18 @@ fi
 # an extra copy would only go stale.
 rm -f dist/404.html dist/.htaccess
 
+# Content belongs to whoever is editing the live site, not to this repo. The
+# client edits through /admin/, which writes content/*.json on the server; if a
+# deploy shipped the repo's copies it would silently undo her work. Pull her
+# changes down with scripts/pull-content.sh instead.
+#
+# Pass --with-content only to seed a site that has none yet.
+if [ "${1:-}" = "--with-content" ]; then
+  say "Including content/ (seeding)"
+else
+  rm -rf dist/content
+fi
+
 say "Preparing the upload list"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT

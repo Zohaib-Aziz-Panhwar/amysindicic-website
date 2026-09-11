@@ -86,6 +86,22 @@ cased and hyphenated. **Uploading a photo with the same name replaces the
 existing one.** Nothing is ever deleted — an image that stops being referenced
 just stays on disk.
 
+## Two editors, one source of truth
+
+The client edits the **live** site at https://amysindicic.com/admin/, which
+writes `content/*.json` on the server. Those files are the real ones.
+
+So a deploy must never ship this repo's copies over them, and
+`deploy-bluehost.sh` leaves `content/` alone for exactly that reason. Before
+editing content locally, run:
+
+```bash
+bash scripts/pull-content.sh
+```
+
+to bring her changes into the repo first. `--with-content` on the deploy is
+only for seeding a site that has none.
+
 ## Where the content lives
 
 `src/data/content.json` and `src/data/posts.json` are the source of truth. The
