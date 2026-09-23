@@ -78,7 +78,17 @@ export default function Home() {
           <Reveal as="h2" className="sec-title">{servicesHeading}</Reveal>
           <div className="svc-grid">
             {services.map((s, i) => (
-              <Reveal key={s.slug} className="svc" delay={i * 70}>
+              // The whole card is the link when a service has a page of its
+              // own, so the target is the card rather than the heading alone.
+              <Reveal
+                key={s.slug}
+                as={s.href ? 'a' : 'div'}
+                className={`svc${s.href ? ' svc--link' : ''}`}
+                delay={i * 70}
+                {...(s.href
+                  ? { href: s.href, target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
                 <h3>{s.title}</h3>
                 <hr className="svc__rule" />
                 <p>{s.blurb}</p>

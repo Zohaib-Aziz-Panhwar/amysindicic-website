@@ -252,6 +252,27 @@ p { margin: 0 0 1em; }
   min-height: 2.6em; display: flex; align-items: center; justify-content: center;
 }
 .svc__rule { width: 38px; height: 3px; background: var(--gold); border: 0; margin: 0 auto 1.1em; }
+
+/* A card that leads somewhere should say so: it lifts, and the gold edge
+   that is already on every card fills in. Text colour is pinned because the
+   card is now an <a> and would otherwise take the link colour. */
+.svc--link {
+  text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-bottom-color .2s ease;
+}
+.svc--link:hover,
+.svc--link:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0, 17, 37, .13);
+  border-bottom-color: var(--gold);
+}
+.svc--link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.svc--link h3 { color: var(--navy); }
+.svc--link p { color: #47505f; }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc--link:hover, .svc--link:focus-visible { transform: none; }
+}
 .svc p { font-size: clamp(.8rem, 1.02vw, .88rem); color: #47505f; margin: 0; line-height: 1.7; }
 
 .svc-cta {

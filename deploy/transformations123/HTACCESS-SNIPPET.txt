@@ -1,0 +1,64 @@
+Paste this block at the VERY TOP of:
+
+    public_html/transformations123/.htaccess
+
+Above everything, including the "# BEGIN LSCACHE" line. Order matters: the
+existing WordPress rules send every request to index.php, so anything placed
+below them never runs.
+
+Back the file up first (cPanel File Manager: right-click → Copy → .htaccess.bak).
+
+--------------------------------------------------------------------------
+# BEGIN UNDER CONSTRUCTION
+# Temporary holding page while the new site is built.
+# Remove this whole block to bring the old site straight back.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # The owner still needs a way in: wp-admin, the login page, and the assets
+  # those two need to render.
+  RewriteCond %{REQUEST_URI} ^/(wp-admin|wp-login\.php|wp-cron\.php|wp-json) [NC]
+  RewriteRule ^ - [L]
+  RewriteCond %{REQUEST_URI} ^/(wp-content|wp-includes)/ [NC]
+  RewriteRule ^ - [L]
+
+  # Anyone already signed in to WordPress sees the real site, so you can keep
+  # working on it while visitors see the holding page.
+  RewriteCond %{HTTP_COOKIE} wordpress_logged_in_ [NC]
+  RewriteRule ^ - [L]
+
+  # Everyone else gets the holding page, served as 503 Service Unavailable.
+  # That matters: 503 tells Google "temporarily down, come back later" and
+  # protects the existing search rankings. Serving it as a normal 200 page
+  # invites Google to index the holding page INSTEAD of the real site.
+  # The holding page and the image it uses must be allowed through, or the
+  # 503 rule would block the page's own artwork.
+  RewriteCond %{REQUEST_URI} !^/(index\.html|butterfly\.png)$
+  RewriteRule ^ - [R=503,L]
+</IfModule>
+
+ErrorDocument 503 /index.html
+
+<IfModule mod_headers.c>
+  Header always set Retry-After "86400"
+</IfModule>
+# END UNDER CONSTRUCTION
+--------------------------------------------------------------------------
+
+
+TO PUT THE OLD SITE BACK
+
+Delete the block between "# BEGIN UNDER CONSTRUCTION" and
+"# END UNDER CONSTRUCTION". Nothing else changes, and index.html can stay
+where it is -- it is only reachable through the rule above.
+
+
+AFTER UPLOADING, CHECK THESE
+
+  https://transformations123.com/            the holding page
+  https://transformations123.com/about/      also the holding page
+  https://transformations123.com/wp-admin/   still the WordPress login
+
+If the holding page does not appear, the LiteSpeed cache is probably still
+serving the old pages -- purge it from the LiteSpeed Cache plugin, or from
+cPanel.

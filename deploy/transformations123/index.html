@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Transformations123 — New Site Coming Soon</title>
+<meta name="description" content="Transformations123 is being rebuilt. Amy Sindicic is still taking enquiries in the meantime." />
+<!-- Temporary page: tell search engines not to index it or keep the old cache. -->
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#001125; --navy-soft:#04203f; --gold:#f7b324; --gold-dark:#d18f0c;
+    --ink:#e8eef6; --muted:#9db0c6;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--navy); color:var(--ink);
+    font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;
+    display:grid; place-items:center; padding:36px 20px;
+    background-image:radial-gradient(1100px 620px at 78% -10%, var(--navy-soft) 0%, var(--navy) 62%);
+  }
+  .card{width:100%; max-width:640px; text-align:center}
+
+  .mark{
+    font-weight:800; letter-spacing:.20em; text-transform:uppercase;
+    font-size:clamp(.62rem,2.1vw,.74rem); color:var(--gold); margin-bottom:30px;
+  }
+  .bf{width:clamp(74px,16vw,104px); height:auto; margin:0 auto 20px; display:block}
+
+  h1{
+    font-size:clamp(1.5rem,5.6vw,2.6rem); line-height:1.12; font-weight:800;
+    margin:0 0 .5em; text-transform:uppercase; letter-spacing:-.01em;
+  }
+  h1 span{display:block; color:var(--gold)}
+  .rule{width:64px; height:3px; border:0; margin:0 auto 26px;
+    background:linear-gradient(90deg,var(--gold),rgba(247,179,36,.25))}
+  p.lead{
+    margin:0 auto 34px; max-width:30em; color:var(--muted);
+    font-size:clamp(.92rem,2.4vw,1.02rem); line-height:1.72;
+  }
+
+  .contact{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-bottom:30px;
+  }
+  .contact a{
+    display:inline-flex; align-items:center; gap:9px; text-decoration:none;
+    border:1px solid rgba(247,179,36,.34); border-radius:4px;
+    padding:12px 20px; color:var(--ink); font-size:.85rem; font-weight:600;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .contact a:hover,.contact a:focus-visible{background:rgba(247,179,36,.11); border-color:var(--gold)}
+  .contact svg{flex:0 0 auto; color:var(--gold)}
+
+  .btn{
+    display:inline-block; background:var(--gold); color:var(--navy);
+    font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+    font-size:.82rem; padding:15px 30px; border-radius:3px; text-decoration:none;
+    border:2px solid var(--gold); transition:background .2s ease,border-color .2s ease;
+  }
+  .btn:hover,.btn:focus-visible{background:var(--gold-dark); border-color:var(--gold-dark)}
+  .btn-note{margin:14px 0 0; font-size:.78rem; color:var(--muted)}
+
+  footer{margin-top:44px; font-size:.72rem; color:#64788f; letter-spacing:.02em}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+  @media (prefers-reduced-motion:no-preference){
+    .card{animation:rise .6s cubic-bezier(.22,.8,.3,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="bf" src="butterfly.png" alt="" width="240" height="242" />
+
+    <div class="mark">Transformations123</div>
+
+    <h1>Something New<span>Is On The Way</span></h1>
+    <hr class="rule" />
+
+    <p class="lead">
+      We're rebuilding this website from the ground up. It will be back before
+      long, with a great deal more to show you.
+    </p>
+
+    <p class="lead" style="margin-bottom:26px">
+      In the meantime, Amy is still taking enquiries — please do get in touch.
+    </p>
+
+    <div class="contact">
+      <a href="mailto:amysindicic@gmail.com">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/>
+        </svg>
+        amysindicic@gmail.com
+      </a>
+      <a href="tel:+14104415056">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.8a2 2 0 0 1 1.7 2z"/>
+        </svg>
+        410-441-5056
+      </a>
+    </div>
+
+    <a class="btn" href="https://amysindicic.com">Visit amysindicic.com</a>
+    <p class="btn-note">Amy's coaching and career strategy site — open now</p>
+
+    <footer>&copy; <span id="y">2026</span> Amy Sindicic. All rights reserved.</footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

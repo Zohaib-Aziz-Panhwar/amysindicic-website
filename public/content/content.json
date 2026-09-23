@@ -82,27 +82,32 @@
         {
             "slug": "executive-coaching",
             "title": "Executive Coaching",
-            "blurb": "Gain clarity and move forward with purpose."
+            "blurb": "Gain clarity and move forward with purpose.",
+            "href": "https://transformations123.com/services/career-coaching"
         },
         {
             "slug": "executive-positioning",
             "title": "Executive Positioning",
-            "blurb": "Define and communicate your executive value."
+            "blurb": "Define and communicate your executive value.",
+            "href": "https://transformations123.com/services/executive-positioning"
         },
         {
             "slug": "executive-branding",
             "title": "Executive Branding",
-            "blurb": "Strengthen your resume, LinkedIn, and leadership brand."
+            "blurb": "Strengthen your resume, LinkedIn, and leadership brand.",
+            "href": "https://transformations123.com/services/personal-branding"
         },
         {
             "slug": "job-search-strategy",
             "title": "Job Search Strategy",
-            "blurb": "Target the right opportunities and build visibility."
+            "blurb": "Target the right opportunities and build visibility.",
+            "href": "https://transformations123.com/services/job-search-strategy"
         },
         {
             "slug": "interview-prep",
             "title": "Interview Prep",
-            "blurb": "Communicate your value with confidence."
+            "blurb": "Communicate your value with confidence.",
+            "href": "https://transformations123.com/services/interview-prep"
         }
     ],
     "servicesCta": {

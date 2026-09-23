@@ -1,0 +1,116 @@
+<?php
+@include '/home4/zrvpfwmy/public_html/transformations123/malcare-waf.php';
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://wordpress.org/support/article/editing-wp-config-php/
+ *
+ * @package WordPress
+ */
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', '/home4/zrvpfwmy/public_html/transformations123/wp-content/plugins/wp-super-cache/' );
+define('DB_NAME', 'zrvpfwmy_WP4WU');
+
+/** MySQL database username */
+define('DB_USER', 'zrvpfwmy_WP4WU');
+
+/** MySQL database password */
+define('DB_PASSWORD', '?b-S*4Z)p!Kr=vUd_');
+
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+
+define('WP_MEMORY_LIMIT', '1024M');
+//define('WP_MEMORY_LIMIT', '2048M');
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define('AUTH_KEY', '-m,JWj6-tdj$:/9y#aaNeTZQ^x:(Hr|.8M0zxYLbv]^zxgUDx8%a$9L>ScZMys|P');
+define('SECURE_AUTH_KEY', 'ZfUio|-1pF!t>5u_(4iE[tndK^6r}nQNjDx_j~> ]:fC-.IZo^~BgLK{C)&8)*Ux');
+define('LOGGED_IN_KEY', '+FC)g|*8|cge%Ne[m{?-(3YDHj{-2kPEr9/Ec83Z`I?Jqm;]R.@sc]~6kAz(Le<I');
+define('NONCE_KEY', '5h`de_)s4s>U94J`[I%5~MhD#g5_$urZMuq;XVV:;rv}{gQTq4jOX7UcKJlI.Rx*');
+define('AUTH_SALT', '_}aN~Lb7Mop._2MwWpfJSW*UwSf_.J/Yqc?g}ErD(RG,XoL7Sp_v6S%L+Tb*A2uo');
+define('SECURE_AUTH_SALT', '.{9LJ1+R>$cKlM:BR5v(r_}ZhX}43$;Di6Fov?v~!~1min!LSo_>zqFCHW975T|.');
+define('LOGGED_IN_SALT', 'iI.oPnlQ>fWZ2^KH)h19JC8,=LgaBGVgKmTY2v@ae(NSu&2)Cc*Wc]*ualH8}T&i');
+define('NONCE_SALT', '`zv{YlIpqr-Uk=r@a*]mi|AmYDe<)jQ@ss(u+x7(l7Bt+SRL`474gmG4-c;K6 uk');
+
+/**#@-*/
+
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix = 'hGb_';
+define('WP_CRON_LOCK_TIMEOUT', 120);
+define('AUTOSAVE_INTERVAL', 300);
+define('WP_POST_REVISIONS', 5);
+define('EMPTY_TRASH_DAYS', 7);
+define('WP_AUTO_UPDATE_CORE', true);
+
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the documentation.
+ *
+ * @link https://wordpress.org/support/article/debugging-in-wordpress/
+ */
+define( 'WP_DEBUG', false );
+
+
+define('SUCURI_PLUG_KEY',  '66763e351c999d0dbead2f38a564eb5fb0f5aebfc29283a6e6bdf36b0a2783c6');
+define('SUCURI_PLUG_SALT', '3dbd0acdd68ab80e2b08a1fffaac9b170b40bc88fae0ecf99746ce0846081677');
+define( 'FORMINATOR_ENCRYPTION_KEY', 'Th*A~npXZt@`nWX-}z`fOoN~?E_Ju#Y,7~DBj8t<ud<kH@dbk5ycr%n!&T`^z#zH' );
+
+
+
+/* Site moved to a subdirectory. These override siteurl/home in the
+   database, so the move needs no database change and is undone by
+   deleting these two lines. */
+define('WP_HOME', 'https://transformations123.com/old-site');
+define('WP_SITEURL', 'https://transformations123.com/old-site');
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
