@@ -83,7 +83,7 @@
             "slug": "executive-coaching",
             "title": "Executive Coaching",
             "blurb": "Gain clarity and move forward with purpose.",
-            "href": "https://transformations123.com/services/career-coaching"
+            "href": "/services/executive-coaching"
         },
         {
             "slug": "executive-positioning",
@@ -95,7 +95,7 @@
             "slug": "executive-branding",
             "title": "Executive Branding",
             "blurb": "Strengthen your resume, LinkedIn, and leadership brand.",
-            "href": "https://transformations123.com/services/personal-branding"
+            "href": "/services/executive-branding"
         },
         {
             "slug": "job-search-strategy",
@@ -301,5 +301,104 @@
             "q": "What happens during the initial call?",
             "a": "We discuss where you are now, what you are considering next, the challenges you’re encountering, and what kind of support would be most valuable. If there is a strong fit, I’ll explain the most appropriate way for us to work together."
         }
-    ]
+    ],
+    "servicePages": {
+        "executive-coaching": {
+            "name": [
+                "Executive",
+                "Coaching"
+            ],
+            "tagline": "Strengthen how you lead, decide, and move forward.",
+            "offerings": [
+                {
+                    "title": "Senior Leader Career & Work-Life Strategy Intensive",
+                    "href": "https://www.upwork.com/services/product/lifestyle-life-coaching-to-help-you-through-transitions-and-transformation-1903412302920426077?ref=fl_profile"
+                },
+                {
+                    "title": "Strategic Leadership Advancement Intensive",
+                    "href": "https://www.upwork.com/services/product/lifestyle-5-hours-of-career-coaching-1658702052510281728?ref=fl_profile"
+                },
+                {
+                    "title": "360° Leadership Assessment",
+                    "href": "https://www.upwork.com/services/product/lifestyle-a-360-leadership-assessment-for-career-and-executive-growth-2074937746803334428?ref=fl_profile"
+                },
+                {
+                    "title": "DISC and Personality Insights",
+                    "href": "https://www.upwork.com/services/product/lifestyle-a-disc-assessment-for-career-management-resume-360-or-other-purpose-1633828292839587840?ref=fl_profile"
+                },
+                {
+                    "title": "Senior Executive Career Strategy and Advisory",
+                    "href": "https://www.upwork.com/services/product/writing-translation-an-executive-resume-for-249-1842749702565552152?ref=fl_profile"
+                }
+            ],
+            "linkLabel": "View on Upwork",
+            "outcome": [
+                "Lead with greater",
+                "clarity and confidence"
+            ]
+        },
+        "executive-branding": {
+            "name": [
+                "Executive",
+                "Branding"
+            ],
+            "tagline": "Clarify your leadership value. Define your direction. Position yourself for what comes next.",
+            "kicker": "Greater possibilities for what comes next",
+            "eyebrow": "Senior Executive Career Branding & Positioning Packages",
+            "heading": "Senior Executive Career Strategy & Advisory",
+            "intro": [
+                "For senior leaders navigating career transition, advancement, or a new market.",
+                "More than resume writing. Every engagement begins with your leadership value, target direction, and executive positioning."
+            ],
+            "tiers": [
+                {
+                    "name": "Executive Positioning",
+                    "price": "$999",
+                    "duration": "30 days",
+                    "items": [
+                        "Leadership & transferable-value assessment",
+                        "2-3 realistic career directions",
+                        "Executive value proposition",
+                        "Up to three targeted resumes",
+                        "LinkedIn positioning",
+                        "Executive cover letter",
+                        "Implementation session"
+                    ]
+                },
+                {
+                    "name": "Executive Market Strategy",
+                    "price": "$1,499",
+                    "duration": "60 days",
+                    "items": [
+                        "Everything in Executive Positioning",
+                        "Target-role & organization mapping",
+                        "Recruiters & decision-makers",
+                        "Networking & executive outreach",
+                        "Hidden-market strategy",
+                        "Ongoing opportunity guidance"
+                    ]
+                },
+                {
+                    "name": "Executive Advisory",
+                    "price": "$1,999",
+                    "duration": "90 days",
+                    "items": [
+                        "Everything in Market Strategy",
+                        "Executive interview preparation",
+                        "Opportunity evaluation",
+                        "Continued strategy refinement",
+                        "Offer assessment",
+                        "Compensation guidance",
+                        "Negotiation support"
+                    ]
+                }
+            ],
+            "linkLabel": "View on Upwork",
+            "linkHref": "https://www.upwork.com/services/product/writing-translation-an-executive-resume-for-249-1842749702565552152?ref=fl_profile",
+            "outcome": [
+                "Position your experience",
+                "for the opportunities you want"
+            ]
+        }
+    }
 }

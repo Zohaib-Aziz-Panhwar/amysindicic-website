@@ -7,6 +7,7 @@ import About from './pages/About.jsx'
 import { BlogIndex, BlogPost } from './pages/Blog.jsx'
 import Testimonials from './pages/Testimonials.jsx'
 import Faqs from './pages/Faqs.jsx'
+import ServicePage from './pages/ServicePage.jsx'
 import Legal from './pages/Legal.jsx'
 import BookingRedirect from './components/BookingRedirect.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -31,7 +32,8 @@ export default function App() {
           <Route path="/insights" element={<Navigate to="/blog" replace />} />
           <Route path="/insights/:slug" element={<Navigate to="/blog" replace />} />
           <Route path="/specializations/*" element={<Navigate to="/" replace />} />
-          <Route path="/services/*" element={<Navigate to="/" replace />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+          <Route path="/services" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

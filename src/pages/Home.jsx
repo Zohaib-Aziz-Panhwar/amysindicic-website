@@ -86,7 +86,14 @@ export default function Home() {
                 className={`svc${s.href ? ' svc--link' : ''}`}
                 delay={i * 70}
                 {...(s.href
-                  ? { href: s.href, target: '_blank', rel: 'noopener noreferrer' }
+                  ? {
+                      href: s.href,
+                      // Only send visitors away in a new tab; pages on this
+                      // site should stay in the one they are already in.
+                      ...(s.href.startsWith('http')
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {}),
+                    }
                   : {})}
               >
                 <h3>{s.title}</h3>

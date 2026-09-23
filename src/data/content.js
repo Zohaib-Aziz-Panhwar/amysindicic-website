@@ -39,6 +39,7 @@ export const footer = data.footer
 export const faqHeading = data.faqHeading
 export const faqIntro = data.faqIntro
 export const faqs = data.faqs
+export const servicePages = data.servicePages || {}
 
 export const hero = { ...data.hero, photo: asset(data.hero.photo) }
 export const about = { ...data.about, portrait: asset(data.about.portrait) }

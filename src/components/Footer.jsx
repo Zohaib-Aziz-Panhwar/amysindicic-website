@@ -51,7 +51,9 @@ export default function Footer() {
             {services.map((s) => (
               <li key={s.slug}>
                 {s.href
-                  ? <a href={s.href} target="_blank" rel="noopener noreferrer">{s.title}</a>
+                  ? (s.href.startsWith('http')
+                      ? <a href={s.href} target="_blank" rel="noopener noreferrer">{s.title}</a>
+                      : <Link to={s.href}>{s.title}</Link>)
                   : s.title}
               </li>
             ))}
