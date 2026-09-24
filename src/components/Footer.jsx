@@ -48,15 +48,7 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Services</h4>
           <ul>
-            {services.map((s) => (
-              <li key={s.slug}>
-                {s.href
-                  ? (s.href.startsWith('http')
-                      ? <a href={s.href} target="_blank" rel="noopener noreferrer">{s.title}</a>
-                      : <Link to={s.href}>{s.title}</Link>)
-                  : s.title}
-              </li>
-            ))}
+            {services.map((s) => <li key={s.slug}>{s.title}</li>)}
           </ul>
           <a
             className="footer__cta-bar"
