@@ -104,9 +104,17 @@ export default function Home() {
           <Reveal as="h2" className="sec-title">Who I Work With</Reveal>
           <div className="aud-grid">
             {audiences.map((a, i) => (
-              <Reveal key={a.slug} className="aud" delay={i * 70}>
+              <Reveal
+                key={a.slug}
+                className={'aud' + (a.href ? ' aud--link' : '')}
+                delay={i * 70}
+                {...(a.href
+                  ? { as: 'a', href: a.href, target: '_blank', rel: 'noreferrer' }
+                  : null)}
+              >
                 <h3>{a.title}</h3>
                 <p>{a.blurb}</p>
+                {a.href && <span className="aud__more" aria-hidden="true">Explore <i>&rarr;</i></span>}
               </Reveal>
             ))}
           </div>

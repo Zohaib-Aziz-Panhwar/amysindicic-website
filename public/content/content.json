@@ -114,22 +114,26 @@
         {
             "slug": "government-leaders",
             "title": "Government Leaders",
-            "blurb": "Position your experience for private-sector leadership."
+            "blurb": "Position your experience for private-sector leadership.",
+            "href": "https://transformations123.com/government"
         },
         {
             "slug": "ses-leaders",
             "title": "SES Leaders & Candidates",
-            "blurb": "Strengthen executive positioning and career strategy."
+            "blurb": "Strengthen executive positioning and career strategy.",
+            "href": "https://transformations123.com/ses"
         },
         {
             "slug": "military-leaders",
             "title": "Military Leaders",
-            "blurb": "Translate military leadership into executive value."
+            "blurb": "Translate military leadership into executive value.",
+            "href": "https://transformations123.com/military"
         },
         {
             "slug": "corporate-executives",
             "title": "Corporate Executives",
-            "blurb": "Prepare for advancement, reinvention, or what comes next."
+            "blurb": "Prepare for advancement, reinvention, or what comes next.",
+            "href": "https://transformations123.com/corporate"
         }
     ],
     "approachHeading": "My Approach",
