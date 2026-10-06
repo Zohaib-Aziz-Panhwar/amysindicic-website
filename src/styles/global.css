@@ -1001,7 +1001,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
 /* Lifted into the hero band so the two sections interlock. */
 .article-figure {
   margin: clamp(-56px, -5vw, -34px) auto clamp(30px, 4vw, 52px);
-  width: min(100% - 2 * clamp(16px, 3vw, 56px), 1720px);
+  /* The text runs full width, but the cover image keeps its natural size so
+     it is not blown up and stretched across the page. */
+  width: min(100% - 2 * clamp(20px, 6%, 80px), 60rem);
   border-radius: 6px; overflow: hidden;
   box-shadow: 0 26px 64px rgba(0, 17, 37, .32);
 }
