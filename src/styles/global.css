@@ -931,6 +931,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
   grid-template-columns: repeat(3, 1fr);
   row-gap: clamp(18px, 2.6vw, 32px);
 }
+/* The blog index fills the width rather than sitting in a narrow centred
+   strip; the home and "more posts" rows keep the standard wrap. */
+.blog .wrap:has(> .blog-grid--index) { max-width: 1640px; }
 /* Home and "more posts" rows keep a grid, but cards size to their content. */
 .blog-grid > * { height: 100%; }
 .post { display: flex; flex-direction: column; height: 100%; }
@@ -961,7 +964,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
   padding: clamp(96px, 12vw, 150px) 0 clamp(70px, 9vw, 120px);
   border-bottom: 3px solid var(--gold);
 }
-.article-hero__inner { max-width: 54rem; }
+.article-hero__inner { max-width: 58rem; }
 .article-hero__back {
   display: inline-flex; align-items: center; gap: 8px;
   color: var(--gold); font-weight: 700; text-transform: uppercase;
@@ -998,14 +1001,14 @@ html, body { max-width: 100%; overflow-x: hidden; }
 /* Lifted into the hero band so the two sections interlock. */
 .article-figure {
   margin: clamp(-56px, -5vw, -34px) auto clamp(30px, 4vw, 52px);
-  width: min(100% - 2 * clamp(20px, 6%, 80px), 47rem);
+  width: min(100% - 2 * clamp(20px, 6%, 80px), 56rem);
   border-radius: 6px; overflow: hidden;
   box-shadow: 0 26px 64px rgba(0, 17, 37, .32);
 }
 .article-figure img { width: 100%; height: auto; display: block; }
 
 .article-body {
-  width: min(100% - 2 * clamp(20px, 6%, 80px), 47rem);
+  width: min(100% - 2 * clamp(20px, 6%, 80px), 56rem);
   margin: 0 auto;
   background: #fff;
   border-radius: 6px;
@@ -1049,7 +1052,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
 /* ---- Previous / next ---- */
 .article-nav {
-  width: min(100% - 2 * clamp(20px, 6%, 80px), 47rem);
+  width: min(100% - 2 * clamp(20px, 6%, 80px), 56rem);
   margin: clamp(34px, 4.5vw, 58px) auto 0;
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 22px);
 }
