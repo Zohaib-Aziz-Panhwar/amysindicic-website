@@ -8,7 +8,8 @@ import { BlogIndex, BlogPost } from './pages/Blog.jsx'
 import Testimonials from './pages/Testimonials.jsx'
 import Faqs from './pages/Faqs.jsx'
 import Legal from './pages/Legal.jsx'
-import BookingRedirect from './components/BookingRedirect.jsx'
+import Apply from './pages/Apply.jsx'
+import Booked from './pages/Booked.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -24,7 +25,10 @@ export default function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/faqs" element={<Faqs />} />
-          <Route path="/contact" element={<BookingRedirect />} />
+          <Route path="/apply" element={<Apply />} />
+          <Route path="/booked" element={<Booked />} />
+          {/* Old contact/booking links now lead to the application form. */}
+          <Route path="/contact" element={<Navigate to="/apply" replace />} />
           <Route path="/privacy" element={<Legal title="Privacy Policy" />} />
           <Route path="/terms" element={<Legal title="Terms of Service" />} />
           {/* Routes from the previous design, kept so old links still resolve */}

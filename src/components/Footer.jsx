@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { footer, site, nav, services, servicesCta, ctas, socials } from '../data/content.js'
+import { footer, site, nav, services, servicesCta, ctas, socials, APPLY_PATH } from '../data/content.js'
 import { asset } from '../lib/asset.js'
 import { SocialMark, Mail, InstagramGradientDefs } from './SocialIcons.jsx'
 
@@ -89,14 +89,9 @@ export default function Footer() {
               <Mail /> {site.email}
             </a>
           )}
-          <a
-            className="btn footer__btn"
-            href={site.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link className="btn footer__btn" to={APPLY_PATH}>
             {ctas.footer}
-          </a>
+          </Link>
         </div>
       </div>
 

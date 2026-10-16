@@ -1,19 +1,15 @@
-import { site, hero } from '../data/content.js'
+import { Link } from 'react-router-dom'
+import { hero, APPLY_PATH } from '../data/content.js'
 
 /**
- * "Book A Strategy Call" CTA. Opens Amy's SimplyBook scheduling page in a new
- * tab so the visitor doesn't lose the site. Used everywhere the CTA appears.
+ * "Book A Strategy Call" CTA. Leads to the in-app application form (/apply),
+ * which collects Amy's qualifying questions and then opens the calendar.
+ * Used everywhere the CTA appears.
  */
 export default function BookButton({ className = 'btn', label = hero.cta, ...rest }) {
   return (
-    <a
-      className={className}
-      href={site.bookingUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      {...rest}
-    >
+    <Link className={className} to={APPLY_PATH} {...rest}>
       {label}
-    </a>
+    </Link>
   )
 }

@@ -1547,3 +1547,14 @@ html, body { max-width: 100%; overflow-x: hidden; }
     gap: 26px;
   }
 }
+
+/* Apply form + booked page (mirrors the transformations123 apply flow). */
+.apply-wrap { max-width: 860px; }
+.apply-foot { color: var(--body); font-size: .85rem; margin: 12px 0 0; }
+.booked-wrap { max-width: 760px; }
+.booked-wrap p { color: var(--body); line-height: 1.75; margin: 0 0 1em; }
+.booked-sign {
+  font-family: var(--sans); font-weight: 700; font-size: 1.3rem;
+  color: var(--gold-dark); margin: 6px 0 26px !important;
+}
+.booked-links { display: flex; flex-wrap: wrap; gap: 14px; }

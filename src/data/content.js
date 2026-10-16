@@ -23,6 +23,11 @@ const postsData = store.posts
 
 export const site = data.site
 export const ctas = data.ctas
+
+/* Where the application form hands off for scheduling, and the path of the
+   in-app apply form the "Book a Discovery Call" buttons point to. */
+export const CALENDLY_URL = 'https://calendly.com/amysindicic/30min'
+export const APPLY_PATH = '/apply'
 export const socials = data.socials
 export const nav = data.nav
 export const banner = data.banner
