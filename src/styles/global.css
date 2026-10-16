@@ -1557,4 +1557,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
   font-family: var(--sans); font-weight: 700; font-size: 1.3rem;
   color: var(--gold-dark); margin: 6px 0 26px !important;
 }
-.booked-links { display: flex; flex-wrap: wrap; gap: 14px; }
+.booked-section { text-align: center; }
+.booked-img {
+  width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;
+  border-radius: 14px; box-shadow: 0 22px 48px rgba(0, 17, 37, .22);
+}
+.booked-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 26px; }
