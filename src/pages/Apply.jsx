@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageHero, Reveal, ClosingBand } from '../components/Common.jsx'
 import { CALENDLY_URL } from '../data/content.js'
+import { asset } from '../lib/asset.js'
 
 /* The application form. Amy wanted people to tell her about themselves before
    they reach the calendar, so this collects her qualifying questions, then
@@ -36,8 +37,14 @@ const EMPTY = {
 
 export default function Apply() {
   const navigate = useNavigate()
+  const [started, setStarted] = useState(false)
   const [v, setV] = useState(EMPTY)
   const [errors, setErrors] = useState({})
+
+  function begin() {
+    setStarted(true)
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }
 
   const update = (e) => {
     const { name, value } = e.target
@@ -121,6 +128,27 @@ export default function Apply() {
 
   const fld = (name) => `field ${errors[name] ? 'field--error' : ''}`
 
+  /* Step 1: Amy's artwork. People meet her and see the price before the form. */
+  if (!started) {
+    return (
+      <section className="apply-intro">
+        <div className="apply-intro-inner">
+          <button type="button" className="apply-panel" onClick={begin} aria-label="Start your application">
+            <img
+              src={asset('/images/apply-hero.jpg')}
+              alt="Apply to Work With Me — Amy Sindicic, Career Strategy, Leadership and Executive Coaching. Due to a full schedule, I'm only accepting a limited number of new clients at this time. Use the link below to schedule an evaluation call and apply."
+            />
+          </button>
+          <button type="button" className="btn apply-start" onClick={begin}>
+            Start Your Application &rarr;
+          </button>
+          <p className="apply-note">You&rsquo;ll pick a time after you apply.</p>
+        </div>
+      </section>
+    )
+  }
+
+  /* Step 2: the application form, which hands off to Calendly. */
   return (
     <>
       <PageHero
