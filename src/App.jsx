@@ -10,6 +10,7 @@ import Faqs from './pages/Faqs.jsx'
 import Legal from './pages/Legal.jsx'
 import Apply from './pages/Apply.jsx'
 import Booked from './pages/Booked.jsx'
+import ExecutiveCoaching from './pages/ExecutiveCoaching.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/executive-coaching" element={<ExecutiveCoaching />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/testimonials" element={<Testimonials />} />

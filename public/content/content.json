@@ -50,6 +50,10 @@
             "to": "/about"
         },
         {
+            "label": "Executive Coaching",
+            "to": "/executive-coaching"
+        },
+        {
             "label": "Blog",
             "to": "/blog"
         },
