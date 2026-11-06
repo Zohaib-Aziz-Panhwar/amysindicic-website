@@ -1,4 +1,4 @@
-# Amy Sindicic — Executive Coach and Career Strategist
+# Amy Sindicic — Executive Coach & Career Strategist
 
 Marketing site built with React + Vite.
 
