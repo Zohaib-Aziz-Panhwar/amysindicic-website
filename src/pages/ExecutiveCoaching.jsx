@@ -1,6 +1,5 @@
 import { Reveal } from '../components/Common.jsx'
 import BookButton from '../components/BookButton.jsx'
-import { socials } from '../data/content.js'
 import { asset } from '../lib/asset.js'
 import { useTitle } from '../lib/useTitle.js'
 
@@ -8,9 +7,9 @@ import { useTitle } from '../lib/useTitle.js'
    from that comp (public/images/coaching/), so swap in full-resolution
    originals there if the client supplies them. */
 
+/* Amy's Upwork coaching package listing (packages + client reviews). */
 const UPWORK =
-  socials.find((s) => s.key === 'upwork')?.href ||
-  'https://www.upwork.com/freelancers/amysindicic'
+  'https://www.upwork.com/services/product/lifestyle-life-coaching-to-help-you-through-transitions-and-transformation-1903412302920426077?ref=fl_profile'
 
 const SERVICES = [
   { title: 'Executive Leadership', img: 'leadership' },
